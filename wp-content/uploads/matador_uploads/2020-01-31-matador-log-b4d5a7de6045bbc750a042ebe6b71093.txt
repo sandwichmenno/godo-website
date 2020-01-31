@@ -1,0 +1,722 @@
+2020-01-31 10:10:32: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 10:10:39: Matador Settings saved. (settings-save-completed)
+2020-01-31 10:10:45: Matador Settings saved. (settings-save-completed)
+2020-01-31 10:10:48: Matador Settings saved. (settings-save-completed)
+2020-01-31 10:11:31: Checking Bullhorn Client ID. (bullhorn-client-id-check)
+2020-01-31 10:11:31: Bullhorn Client ID Response Received (bullhorn-client-id-response)
+2020-01-31 10:11:31: Bullhorn Client ID Check returned no error. Try again. (bullhorn-client-id-valid)
+2020-01-31 10:11:31: Matador Settings saved. (settings-save-completed)
+2020-01-31 10:11:31: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 10:11:36: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 10:11:36: User initiated an authorization for Bullhorn. (bullhorn-authorize-start)
+2020-01-31 10:11:36: A manual authorization is required. User will be redirected. (bullhorn-authorize-send)
+2020-01-31 10:11:39: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 10:24:04: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 10:24:04: User initiated an authorization for Bullhorn. (bullhorn-authorize-start)
+2020-01-31 10:24:04: A manual authorization is required. User will be redirected. (bullhorn-authorize-send)
+2020-01-31 10:24:14: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 10:51:54: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 10:51:54: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 10:55:13: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 10:55:13: User initiated an authorization for Bullhorn. (bullhorn-authorize-start)
+2020-01-31 10:55:13: A manual authorization is required. User will be redirected. (bullhorn-authorize-send)
+2020-01-31 10:57:04: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 10:57:19: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 10:57:20: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 10:57:28: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 10:57:33: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 12:36:26: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 12:36:26: User initiated an authorization for Bullhorn. (bullhorn-authorize-start)
+2020-01-31 12:36:26: A manual authorization is required. User will be redirected. (bullhorn-authorize-send)
+2020-01-31 12:36:38: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 12:38:16: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 12:38:16: User initiated an authorization for Bullhorn. (bullhorn-authorize-start)
+2020-01-31 12:38:16: A manual authorization is required. User will be redirected. (bullhorn-authorize-send)
+2020-01-31 12:38:48: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 12:38:53: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 12:38:53: User initiated an authorization for Bullhorn. (bullhorn-authorize-start)
+2020-01-31 12:38:53: A manual authorization is required. User will be redirected. (bullhorn-authorize-send)
+2020-01-31 12:43:04: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 12:43:04: To attempt a login, you must have an authorized site. (bullhorn-test-reconnect)
+2020-01-31 12:43:05: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 12:43:11: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 12:59:18: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 12:59:29: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 12:59:31: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 13:53:29: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 13:53:29: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 13:53:34: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 13:53:35: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 13:53:41: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 13:53:42: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 13:53:42: A redirect URI check yielded a valid Redirect URI.
+
+
+<html>
+<head>
+<title>Bullhorn OAuth Error - Invalid Redirect URI</title>
+</head>
+<body>
+<h1>Bullhorn OAuth Error</h1>
+<h2>Invalid Redirect URI</h2>
+<table>
+    <tr>
+        <td>
+            Redirect URI:
+        </td>
+        <td>
+            null
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Id:
+        </td>
+        <td>
+            eb70e8b5-3260-43b3-bdc2-148e6904aa19
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Client Name:
+        </td>
+        <td>
+            Godo-19374
+        </td>
+    </tr>
+</table>
+</body>
+</html> (bullhorn-is-redirect-valid-true)
+2020-01-31 13:53:45: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 13:53:45: Matador Settings were saved, but no changes were detected. (settings-save-without-change)
+2020-01-31 13:53:45: Matador Settings saved. (settings-save-completed)
+2020-01-31 13:53:50: Matador Settings saved. (settings-save-completed)

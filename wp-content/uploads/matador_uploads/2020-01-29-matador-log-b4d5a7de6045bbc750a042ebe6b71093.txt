@@ -1,0 +1,7 @@
+2020-01-29 16:06:15: A setting that affects rewrites was changed. Rewrites will be flushed on next admin load. (options-trigger-rewrite)
+2020-01-29 16:06:15: A setting that affects rewrites was changed. Rewrites will be flushed on next admin load. (options-trigger-rewrite)
+2020-01-29 16:06:15: A setting that affects rewrites was changed. Rewrites will be flushed on next admin load. (options-trigger-rewrite)
+2020-01-29 16:06:15: A setting that affects rewrites was changed. Rewrites will be flushed on next admin load. (options-trigger-rewrite)
+2020-01-29 16:06:16: Matador Settings saved. (settings-save-completed)
+2020-01-29 16:06:16: Matador flushed rewrite rules. (flush-rewrite-rules)
+2020-01-29 16:08:05: Matador Settings saved. (settings-save-completed)
