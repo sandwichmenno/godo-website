@@ -1,7 +1,6 @@
 <?php
-require_once(get_template_directory() . '/inc/bullhorn-settings.php');
-require_once(get_template_directory() . '/inc/bullhorn-connect.php');
-require_once(get_template_directory() . '/inc/bullhorn-endpoints.php');
+require_once(get_template_directory() . '/inc/BullhornSettings.php');
+require_once(get_template_directory() . '/inc/BullhornAPI.php');
 
 if ( ! function_exists( 'godo_setup' ) ) :
     function godo_setup() {
@@ -20,6 +19,49 @@ if ( ! function_exists( 'godo_setup' ) ) :
     }
 endif;
 add_action( 'after_setup_theme', 'godo_setup' );
+
+function ajax_apply(){
+    $bullhorn = new BullhornAPI();
+    $candidate_data = $_POST;
+    $candidate_files = $_FILES['file'];
+    $form_status = NULL;
+
+    /*if(NULL === $form_status) :
+        $duplicate_candidates = $bullhorn->findCandidate(array('first_name' => $candidate_data['firstName'], 'last_name' => $candidate_data['lastName'], 'email' => $candidate_data['email']));
+        $form_status = $duplicate_candidates;
+        echo $form_status;
+    endif;*/
+
+    if(NULL === $form_status) :
+        $candidate_data = array(
+            'firstName' => $candidate_data['firstName'],
+            'lastName' => $candidate_data['lastName'],
+            'name' => trim($candidate_data['firstName'].' '.$candidate_data['lastName']),
+            'description' => 'Sollicitant via de GoDo website',
+            'email' => $candidate_data['email'],
+            'mobile' => $candidate_data['phone'],
+            'website' => $candidate_data['website'],
+            'comments' => $candidate_data['additions']
+        );
+
+        $candidate = $bullhorn->createCandidate($candidate_data, $candidate_files);
+        print_r($candidate_files);
+    endif;
+
+    wp_die();
+}
+add_action( 'wp_ajax_ajaxapply', 'ajax_apply' );
+add_action( 'wp_ajax_nopriv_ajaxapply', 'ajax_apply' );
+
+function getJobs() {
+    $bullhorn = new BullhornAPI();
+    return $bullhorn->jobsFetchAll();
+}
+
+function getJob($id) {
+    $bullhorn = new BullhornAPI();
+    return $bullhorn->jobFetch($id);
+}
 
 function register_styles() {
     $theme_version = wp_get_theme()->get( 'Version' );
@@ -107,10 +149,22 @@ function build_member_meta_box( $post ){
     $cur_linkedin = get_post_meta( $post->ID, '__linkedin', true );
     $cur_email = get_post_meta( $post->ID, '__email', true );
     $cur_phone = get_post_meta( $post->ID, '__phone', true );
-    $cur_specialties = ( get_post_meta( $post->ID, '__specialty', true ) ) ? get_post_meta( $post->ID, '__specialty', true ) : array();
+    $cur_subtitle = get_post_meta( $post->ID, '__subtitle', true );
+    $cur_listingDesc = get_post_meta( $post->ID, '__listingDesc', true );
+    $cur_specialty = ( get_post_meta( $post->ID, '__specialty', true ) ) ? get_post_meta( $post->ID, '__specialty', true ) : '';
 
-    $specialties = array( 'Agile', 'Design', 'Development', 'Infra' );
+    $specialties = array( 'agile', 'design', 'development', 'infra' );
     ?>
+        <p>
+            <label for="linkedin">Functietitel / Ondertitel</label>
+            <input type="text" name="subtitle" value="<?php echo $cur_subtitle; ?>" class="widefat"/>
+        </p>
+
+        <p>
+            <label for="phone">Informatietekst bij vacatures</label>
+            <textarea name="listingDesc" class="widefat"><?php echo $cur_listingDesc; ?></textarea>
+        </p>
+
         <p>
             <label for="linkedin">LinkedIn URL</label>
             <input type="text" name="linkedin" value="<?php echo $cur_linkedin; ?>" class="widefat"/>
@@ -131,7 +185,7 @@ function build_member_meta_box( $post ){
             <?php
             foreach ( $specialties as $specialty ) {
                 ?>
-                <input type="checkbox" name="specialties[]" value="<?php echo $specialty; ?>" <?php checked( ( in_array( $specialty, $cur_specialties ) ) ? $specialty : '', $specialty ); ?> /><?php echo $specialty; ?> <br />
+                <input type="radio" name="specialties" value="<?php echo $specialty; ?>" <?php echo ($cur_specialty === $specialty) ?  'checked="checked"':'' ?> /><?php echo ucfirst($specialty); ?> <br />
                 <?php
             }
             ?>
@@ -153,8 +207,17 @@ function save_member_meta_box( $post_id ){
         return;
     }
 	// store custom fields values
-	if ( isset( $_REQUEST['linkedin'] ) ) {
+    if ( isset( $_REQUEST['listingDesc'] ) ) {
+        update_post_meta( $post_id, '__listingDesc', sanitize_text_field( $_POST['listingDesc'] ) );
+    }
+
+
+    if ( isset( $_REQUEST['linkedin'] ) ) {
         update_post_meta( $post_id, '__linkedin', sanitize_text_field( $_POST['linkedin'] ) );
+    }
+
+    if ( isset( $_REQUEST['subtitle'] ) ) {
+        update_post_meta( $post_id, '__subtitle', sanitize_text_field( $_POST['subtitle'] ) );
     }
 
     if ( isset( $_REQUEST['email'] ) ) {
@@ -166,7 +229,7 @@ function save_member_meta_box( $post_id ){
     }
 
     if( isset( $_POST['specialties'] ) ){
-        $specialties = (array) $_POST['specialties'];
+        $specialties = $_POST['specialties'];
         update_post_meta( $post_id, '__specialty', $specialties );
     }else{
         // delete data
@@ -184,3 +247,77 @@ function register_widgets() {
     ) );
 }
 add_action( 'widgets_init', 'register_widgets' );
+
+
+function BullhornAuthenticate() {
+    $bullhorn = new BullhornAPI();
+    $result = $bullhorn->bullhorn_authenticate();
+
+    update_option('bullhorn_access_token', $result[0]);
+    update_option('bullhorn_auth_token', $result[1]);
+    update_option('bullhorn_refresh_token', $result[2]);
+    update_option('bullhorn_rest_token', $result[3]);
+
+    wp_redirect(admin_url( 'admin.php?page=settings'));
+}
+add_action( 'admin_post_bullhorn_authenticate', 'BullhornAuthenticate' );
+
+function BullhornApply() {
+    $bullhorn = new BullhornAPI();
+    $candidate_data = $_POST;
+    $form_status = '';
+
+    # Validate resume upload
+    if(NULL === $form_status) :
+        if($_FILES) :
+            if(FALSE === ($resume = validateUpload('resume'))) :
+                $form_status = array('status' => 'error', 'message' => uploadError());
+                unset($resume);
+            endif;
+        endif;
+
+        echo 'nope';
+    endif;
+
+    //wp_redirect('http://192.168.99.100:8000/vacature/?id=15');
+    exit;
+}
+add_action( 'admin_post_bullhorn_apply', 'BullhornApply' );
+
+function getJobCategory($job) {
+    $jobTypes = ['design', 'dev', 'agile', 'infra'];
+    $catName = !empty($job['categories']['data'][0]['name']) ? $job['categories']['data'][0]['name'] : '';
+    $category = '';
+
+    foreach ($jobTypes as $jobType) {
+        if(stripos($catName, $jobType) !== FALSE ) {
+            $category = $jobType;
+        }
+    }
+
+    return $category;
+}
+
+function getRecruiterBySpecialism($category) {
+    $args = array(
+        'post_type' => 'members',
+    );
+    $your_loop = new WP_Query( $args );
+
+    if ( $your_loop->have_posts() ) : while ( $your_loop->have_posts() ) : $your_loop->the_post();
+        $specialty = get_post_meta( get_the_ID(), '__specialty', true );
+
+        if($specialty === $category) {
+            return get_the_ID();
+        } else {
+            return FALSE;
+        }
+    endwhile; endif; wp_reset_postdata();
+}
+
+function getRecruiterByName($name) {
+    $name = $name['firstName'] . ' ' . $name['lastName'];
+
+    $recruiter = get_page_by_title($name, OBJECT, 'members');
+    return $recruiter;
+}
