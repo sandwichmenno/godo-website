@@ -22,30 +22,49 @@ add_action( 'after_setup_theme', 'godo_setup' );
 
 function ajax_apply(){
     $bullhorn = new BullhornAPI();
-    $candidate_data = $_POST;
+    $post_data = $_POST;
     $candidate_files = $_FILES['file'];
-    $form_status = NULL;
+    $errors = $bullhorn->validateSubmission($post_data, $candidate_files);
+    $failed = false;
 
-    /*if(NULL === $form_status) :
-        $duplicate_candidates = $bullhorn->findCandidate(array('first_name' => $candidate_data['firstName'], 'last_name' => $candidate_data['lastName'], 'email' => $candidate_data['email']));
-        $form_status = $duplicate_candidates;
-        echo $form_status;
-    endif;*/
+    //Validate post data
+    if(NULL === $errors) :
+        //Find duplicate candidates
+        $duplicate_candidate = $bullhorn->findCandidate(array('first_name' => $post_data['firstName'], 'last_name' => $post_data['lastName'], 'email' => $post_data['email']));
+        if(FALSE === $duplicate_candidate) : $failed = true; endif;
 
-    if(NULL === $form_status) :
-        $candidate_data = array(
-            'firstName' => $candidate_data['firstName'],
-            'lastName' => $candidate_data['lastName'],
-            'name' => trim($candidate_data['firstName'].' '.$candidate_data['lastName']),
-            'description' => 'Sollicitant via de GoDo website',
-            'email' => $candidate_data['email'],
-            'mobile' => $candidate_data['phone'],
-            'website' => $candidate_data['website'],
-            'comments' => $candidate_data['additions']
-        );
+        if(FALSE === $failed) :
+            if(NULL === $duplicate_candidate) :
+                //Create new candidate
+                $candidate_data = array(
+                    'firstName' => $post_data['firstName'],
+                    'lastName' => $post_data['lastName'],
+                    'name' => trim($post_data['firstName'].' '.$post_data['lastName']),
+                    'description' => $post_data['website'],
+                    'email' => $post_data['email'],
+                    'mobile' => $post_data['phone'],
+                );
 
-        $candidate = $bullhorn->createCandidate($candidate_data, $candidate_files);
-        print_r($candidate_files);
+                $candidate = $bullhorn->createCandidate($candidate_data, $candidate_files);
+                if(FALSE === $candidate) : $failed = true; endif;
+            else :
+                $candidate = $duplicate_candidate['id'];
+            endif;
+        endif;
+
+        if(FALSE === $failed) :
+            //Add candidate to Job Submission
+            $submission = $bullhorn->addJobSubmission($candidate, $post_data['job'], $post_data['additions']);
+            if(FALSE === $submission) : $failed = true; endif;
+        endif;
+
+        if(FALSE === $failed ) :
+            echo json_encode(array('success' => true));
+        else :
+            echo json_encode(array('success' => 'failed'));
+        endif;
+    else :
+        echo json_encode(array_merge(array('success' => 'empty'), array("errors" => $errors)));
     endif;
 
     wp_die();
@@ -55,8 +74,12 @@ add_action( 'wp_ajax_nopriv_ajaxapply', 'ajax_apply' );
 
 function getJobs() {
     $bullhorn = new BullhornAPI();
-    return $bullhorn->jobsFetchAll();
+    echo json_encode($bullhorn->jobsFetchAll());
+
+    wp_die()
 }
+add_action( 'wp_ajax_getJobs', 'getJobs' );
+add_action( 'wp_ajax_nopriv_getJobs', 'getJobs' );
 
 function getJob($id) {
     $bullhorn = new BullhornAPI();
@@ -285,7 +308,7 @@ function BullhornApply() {
 add_action( 'admin_post_bullhorn_apply', 'BullhornApply' );
 
 function getJobCategory($job) {
-    $jobTypes = ['design', 'dev', 'agile', 'infra'];
+    $jobTypes = ['design', 'dev', 'agile', 'infra', 'support'];
     $catName = !empty($job['categories']['data'][0]['name']) ? $job['categories']['data'][0]['name'] : '';
     $category = '';
 
@@ -294,6 +317,8 @@ function getJobCategory($job) {
             $category = $jobType;
         }
     }
+
+    if(empty($category)) { $category = 'misc'; }
 
     return $category;
 }

@@ -37,25 +37,69 @@ class BullhornAPI {
         $this->CLIENT_SECRET = $options['client_secret'];
     }
 
-    public function createCandidate($person, $resume_files) {
-        /*if(FALSE === $this->comm('entity/Candidate?%s', 'PUT', $person)) :
+    public function validateSubmission($data, $files) {
+        $required = array('firstName', 'lastName', 'email', 'phone');
+        $errors = array();
+
+        foreach($required as $fieldName) {
+            if(empty($data[$fieldName])) {
+                $errors[$fieldName] = 'Dit veld is verplicht';
+            }
+        }
+
+        if(empty($files) && empty($data['website'])) {
+            $errors['website'] = '';
+            $errors['drop-zone'] = 'Je moet een offline of online cv/portfolio/LinkedIn toevoegen';
+        }
+
+        if(empty($errors)) {
+            return null;
+        } else {
+            return $errors;
+        }
+    }
+
+    public function addJobSubmission($candidate_id, $job_id, $comment) {
+        $timestamp = time();
+        $candidate = array("id" => $candidate_id);
+        $job = array("id" => $job_id);
+
+        $submission_data = array(
+            'candidate' => $candidate,
+            'jobOrder' => $job,
+            'status' => 'New Lead',
+            'dateWebResponse' => $timestamp,
+            'comments' => $comment
+        );
+
+        $submission = $this->comm('entity/JobSubmission?%s', 'PUT', $submission_data);
+
+        if(FALSE === $submission) :
             return FALSE;
-        endif;*/
-
-        if(NULL !== $resume_files) :
-            $candidate_id = 3846;
-
-            $candid = $this->candidateAttachResume($candidate_id, $resume_files);
         endif;
 
-        return $candid;
+        return $submission;
+    }
+
+    public function createCandidate($person, $resume_files) {
+        $candidate = $this->comm('entity/Candidate?%s', 'PUT', $person);
+        $candidate_id = $candidate['changedEntityId'];
+
+        if(FALSE === $candidate) :
+            return FALSE;
+        endif;
+
+        if(NULL !== $resume_files) :
+            $files = $this->candidateAttachResume($candidate_id, $resume_files);
+            if(FALSE === $files) :
+                return FALSE;
+            endif;
+        endif;
+
+        return $candidate_id;
     }
 
     public function candidateAttachResume($candidate_id, $resume_files) {
-        if(TRUE !== $this->oAuth()) :
-            return FALSE;
-        endif;
-
         if(NULL !== $resume_files) {
             $encoded_files = array();
 
@@ -73,13 +117,12 @@ class BullhornAPI {
                 );
                 array_push($encoded_files, $resume);
 
-                /*if(FALSE === $this->comm('file/Candidate/' . $candidate_id . '?%s', 'PUT', $file)) :
+                $files = $this->comm('file/Candidate/' . $candidate_id . '?%s', 'PUT', $file);
+                if(FALSE === $files) :
                     return FALSE;
-                endif;*/
+                endif;
             }
         }
-
-        return $encoded_files;
     }
 
     public function findCandidate($person) {
@@ -106,7 +149,7 @@ class BullhornAPI {
             return NULL;
         endif;
 
-        return $perfect_matches;
+        return $perfect_matches[0];
     }
 
     public function jobFetch($id) {
@@ -114,7 +157,7 @@ class BullhornAPI {
             return FALSE;
         endif;
 
-        $query = 'fields=title,address,categories,skills,publicDescription,owner&where=id=' . $id;
+        $query = 'fields=id,title,address,categories,skills,publicDescription,owner&where=id=' . $id;
 
         if(FALSE === $this->comm(sprintf('query/JobOrder?%s', $query), 'GET')) :
             return FALSE;
@@ -128,7 +171,7 @@ class BullhornAPI {
             return FALSE;
         endif;
 
-        $query = 'fields=id,title,address,categories,skills&where=isDeleted=false';
+        $query = 'fields=id,title,address,categories,skills&where=isDeleted=false+AND+isPublic=1';
 
         if(FALSE === $this->comm(sprintf('query/JobOrder?%s', $query), 'GET')) :
             return FALSE;

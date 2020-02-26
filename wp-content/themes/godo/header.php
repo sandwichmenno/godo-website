@@ -15,9 +15,13 @@
             <div class="container row">
                 <a href="<?php bloginfo('url') ?>"><img src="<?php bloginfo('template_directory'); ?>/assets/images/logo.svg" class="logo"/></a>
 
-                <div class="hamburger hamburger--squeeze">
-                    <div class="hamburger-box">
-                        <div class="hamburger-inner"></div>
+                <div class="mainMenu"><?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?></div>
+
+                <div class="menuToggle">
+                    <div class="hamburger hamburger--squeeze">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,6 +38,7 @@
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
             isMobile = true;
         }
+
             jQuery(document).ready(function () {
                 if(isMobile) {
                     let top;

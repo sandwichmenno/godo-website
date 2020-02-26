@@ -86,41 +86,42 @@
         </div>
     </section>
 
-    <section class="page-section gray">
+    <section class="page-section gray" id="recruiter">
         <div class="container">
+            <h2>Nog vragen?</h2>
             <div class="row" style="justify-content: space-between">
-                <div class="block" style="flex: 0 0 50%;">
-                    <h2>Nog vragen?</h2>
+                <div class="block image"><img src="<?php echo $recruiterImage; ?>"/></div>
+                <div class="content">
                     <h4><?php echo $recruiter->post_title; ?></h4>
-                    <span><?php echo $recruiterSubtitle ?></span>
+                    <?php echo $recruiterSubtitle ?>
+                    <p><?php echo $recruiterText; ?></p>
                 </div>
-
-                <div class="block image" style="flex: 0 0 45%;"><img src="<?php echo $recruiterImage; ?>"/></div>
             </div>
-            <p><?php echo $recruiterText; ?></p>
 
-            <div class="row" style="flex-direction: column;">
+            <div class="row buttons">
                 <a href="tel:<?php echo $recruiterPhone ?>" class="button primary dark"><?php echo $recruiterPhone; ?></a>
-                <a href="mailto:<?php echo $recruiterEmail ?>" class="button primary dark" style="margin: 15px 0;"><?php echo $recruiterEmail; ?></a>
+                <a href="mailto:<?php echo $recruiterEmail ?>" class="button primary dark"><?php echo $recruiterEmail; ?></a>
                 <a class="button primary dark">Stuur mij een appje</a>
             </div>
         </div>
     </section>
 
     <section class="page-section">
-        <div class="container"><h2>Meer vacatures zoals deze</h2></div>
-        <div class="job">
-            <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_design.svg" class="icon">
-            <div class="job-details">
-                <h3>Digital product designer</h3>
-                <div class="tags">
-                    <div class="tag design">UI</div>
-                    <div class="tag design">UX</div>
-                    <div class="tag design">Concepting</div>
-                </div>
-                <div class="location">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/map-pin.svg">
-                    Amersfoort
+        <div class="container">
+            <h2>Meer vacatures zoals deze</h2>
+            <div class="job">
+                <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_design.svg" class="icon">
+                <div class="job-details">
+                    <h3>Digital product designer</h3>
+                    <div class="tags">
+                        <div class="tag design">UI</div>
+                        <div class="tag design">UX</div>
+                        <div class="tag design">Concepting</div>
+                    </div>
+                    <div class="location">
+                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/map-pin.svg">
+                        Amersfoort
+                    </div>
                 </div>
             </div>
         </div>
