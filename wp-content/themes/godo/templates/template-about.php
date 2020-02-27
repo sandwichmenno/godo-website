@@ -16,8 +16,10 @@
     <section class="page-section gray" id="about">
         <div class="container row">
             <div class="block intro row">
-                <p>‘Wij geloven dat de juiste persoon op de juiste plaats bedrijven sneller laat groeien. We gaan voor een lange termijn relatie met onze opdrachtgevers en onze kandidaten. Daarom nemen we de tijd om de juiste match te maken. Zonder duwen of trekken. Daarbij kijken we niet alleen naar de bewezen skills van onze kandidaten, maar ook naar hun groeipotentieel. Recruitment is een ambacht. GoDo it.’</p>
-                <a href="/" class="button secondary dark">Neem contact met ons op</a>
+                <div>
+                    <p>‘Wij geloven dat de juiste persoon op de juiste plaats bedrijven sneller laat groeien. We gaan voor een lange termijn relatie met onze opdrachtgevers en onze kandidaten. Daarom nemen we de tijd om de juiste match te maken. Zonder duwen of trekken. Daarbij kijken we niet alleen naar de bewezen skills van onze kandidaten, maar ook naar hun groeipotentieel. Recruitment is een ambacht. GoDo it.’</p>
+                    <a href="/contact" class="button secondary dark">Neem contact met ons op</a>
+                </div>
             </div>
 
             <div class="block image" style="margin-top: 32px;">
@@ -49,8 +51,8 @@
 
                     <div class="block-content row">
                         <p><?php the_content() ?></p>
-                        <a href="/" class="button secondary">Mail: <?php echo $email ?>></a>
-                        <a href="/" class="button secondary">Bel:  <?php echo $phone ?></a>
+                        <?php if($email) { ?><a href="mailto:<?php echo $email; ?>" class="button secondary">Mail: <?php echo $email ?>></a><?php } ?>
+                        <?php if($phone) { ?><a href="tel:<?php echo $phone; ?>" class="button secondary">Bel:  <?php echo $phone ?></a><?php } ?>
                     </div>
                 </div>
 

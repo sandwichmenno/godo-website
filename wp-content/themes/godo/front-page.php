@@ -6,7 +6,7 @@
         <div class="hero-title"><h1>Work. Set. Match.</h1></div>
         <p class="hero-subtitle">We helpen mensen en bedrijven groeien door het maken van de juiste match.</p>
         <a href="/over-godo" class="button primary dark">Meer over GoDo</a>
-        <a href="/" class="button primary dark" style="margin-left: 16px;">Neem contact op</a>
+        <a href="/contact" class="button primary dark" style="margin-left: 16px;">Neem contact op</a>
     </div>
 </section>
 
@@ -21,38 +21,54 @@
     <div class="job-categories slider container">
         <div class="slider-wrapper">
             <div class="slider-item">
-                <div class="block">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_agile.svg" class="icon"/>
-                    <h2>Agile vacatures</h2>
-                </div>
+                <a href="/vacatures/?category=agile">
+                    <div class="block">
+                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_agile.svg" class="icon"/>
+                        <h2>Agile vacatures</h2>
+                    </div>
+                </a>
             </div>
 
             <div class="slider-item">
-                <div class="block">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_design.svg" class="icon"/>
-                    <h2>Design vacatures</h2>
-                </div>
-            </div>
-
-
-            <div class="slider-item">
-                <div class="block">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_coding.svg" class="icon"/>
-                    <h2>Development vacatures</h2>
-                </div>
+                <a href="/vacatures/?category=design">
+                    <div class="block">
+                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_design.svg" class="icon"/>
+                        <h2>Design vacatures</h2>
+                    </div>
+                </a>
             </div>
 
             <div class="slider-item">
-                <div class="block">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_infra.svg" class="icon"/>
-                    <h2>Infrastructuur vacatures</h2>
-                </div>
+                <a href="/vacatures/?category=dev">
+                    <div class="block">
+                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_dev.svg" class="icon"/>
+                        <h2>Development vacatures</h2>
+                    </div>
+                </a>
+            </div>
+
+            <div class="slider-item">
+                <a href="/vacatures/?category=infra">
+                    <div class="block">
+                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_infra.svg" class="icon"/>
+                        <h2>Infrastructuur vacatures</h2>
+                    </div>
+                </a>
+            </div>
+
+            <div class="slider-item">
+                <a href="/vacatures/?category=misc">
+                    <div class="block">
+                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_misc.svg" class="icon"/>
+                        <h2>Overige vacatures</h2>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
 
     <div class="container more-jobs">
-        <a href="/" class="button primary dark">Nog meer vacatures</a>
+        <a href="/vacatures" class="button primary dark">Nog meer vacatures</a>
     </div>
 </section>
 
@@ -64,7 +80,7 @@
                 <div class="content">
                     <h2>We zijn matchmakers die nauw samenwerken met onze opdrachtgevers. </h2>
                     <p>Door actief contact te houden met ons grote netwerk vinden we snel de juiste kandidaat voor je. Mensen met ervaring die toe zijn aan een volgende stap. Aan stalken doen we niet, wel aan hard werken en doorzetten.</p>
-                    <a href="/" class="button secondary">Neem contact op</a>
+                    <a href="/contact" class="button secondary">Neem contact op</a>
                 </div>
             </div>
         </div>
@@ -98,7 +114,7 @@
 
 <script type="text/javascript">
     jQuery('.job-categories .slider-wrapper').slick({
-        dots: true,
+        dots: false,
         infinite: true,
         arrows: false,
         speed: 300,
@@ -110,7 +126,8 @@
                 breakpoint: 1025,
                 settings: {
                     slidesToShow: 4,
-                    slidesToScroll: 4
+                    slidesToScroll: 4,
+                    dots: true
                 }
             },
             {
@@ -134,12 +151,12 @@
     });
 
     jQuery('.showcase .slider-wrapper').slick({
-        dots: false,
+        dots: true,
         infinite: true,
         arrows: false,
         speed: 300,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 3,
+        slidesToScroll: 3,
         adaptiveWidth: true,
         responsive: [
             {
@@ -147,15 +164,6 @@
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 769,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    dots: true
                 }
             },
             {

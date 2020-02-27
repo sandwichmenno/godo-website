@@ -7,8 +7,8 @@
                         <?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
 
                         <div class="info">
-                            Generaal Vetterstraat 82
-                            <br/>1059 BW Amsterdam
+                            Fred. Roeskestraat 99
+                            <br/>1076 EE Amsterdam
                             <br/>info@godo.nl
                         </div>
                     </div>

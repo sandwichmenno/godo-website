@@ -16,13 +16,6 @@ function bullhorn_options_page() {
     $bullhorn_authToken = get_option('bullhorn_auth_token', null);
     $bullhorn_refreshToken = get_option('bullhorn_refresh_token', null);
     $bullhorn_restToken = get_option('bullhorn_rest_token', null);
-    $isAuthenticated = '';
-
-    if(!empty($bullhorn_accessToken) && !empty($bullhorn_authToken) && !empty($bullhorn_refreshToken) && !empty($bullhorn_restToken)) {
-        $isAuthenticated = '';
-    } else {
-        $isAuthenticated = 'not';
-    }
 
     if ( ! isset( $_REQUEST['updated'] ) )
         $_REQUEST['updated'] = false;
@@ -59,7 +52,6 @@ function bullhorn_options_page() {
         </form>
 
     </div>
-
     <?php
 }
 ?>

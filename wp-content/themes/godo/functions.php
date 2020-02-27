@@ -1,5 +1,6 @@
 <?php
 require_once(get_template_directory() . '/inc/BullhornSettings.php');
+require_once(get_template_directory() . '/inc/ThemeSettings.php');
 require_once(get_template_directory() . '/inc/BullhornAPI.php');
 
 if ( ! function_exists( 'godo_setup' ) ) :
@@ -76,7 +77,7 @@ function getJobs() {
     $bullhorn = new BullhornAPI();
     echo json_encode($bullhorn->jobsFetchAll());
 
-    wp_die()
+    wp_die();
 }
 add_action( 'wp_ajax_getJobs', 'getJobs' );
 add_action( 'wp_ajax_nopriv_getJobs', 'getJobs' );
@@ -174,7 +175,7 @@ function build_member_meta_box( $post ){
     $cur_phone = get_post_meta( $post->ID, '__phone', true );
     $cur_subtitle = get_post_meta( $post->ID, '__subtitle', true );
     $cur_listingDesc = get_post_meta( $post->ID, '__listingDesc', true );
-    $cur_specialty = ( get_post_meta( $post->ID, '__specialty', true ) ) ? get_post_meta( $post->ID, '__specialty', true ) : '';
+    $cur_visibility = get_post_meta( $post->ID, '__visibility', true );
 
     $specialties = array( 'agile', 'design', 'development', 'infra' );
     ?>
@@ -204,14 +205,8 @@ function build_member_meta_box( $post ){
         </p>
 
         <p>
-            <label for="phone">Specialiteit(en)</label><br/>
-            <?php
-            foreach ( $specialties as $specialty ) {
-                ?>
-                <input type="radio" name="specialties" value="<?php echo $specialty; ?>" <?php echo ($cur_specialty === $specialty) ?  'checked="checked"':'' ?> /><?php echo ucfirst($specialty); ?> <br />
-                <?php
-            }
-            ?>
+            <label for="phone">Verbergen op contactpagina</label>
+            <input type="checkbox" name="visibility" value="true" <?php if($cur_visibility === "true") { echo 'checked'; } else { echo ''; } ?> class="widefat"/>
         </p>
     <?php
 }
@@ -251,12 +246,8 @@ function save_member_meta_box( $post_id ){
         update_post_meta( $post_id, '__phone', sanitize_text_field( $_POST['phone'] ) );
     }
 
-    if( isset( $_POST['specialties'] ) ){
-        $specialties = $_POST['specialties'];
-        update_post_meta( $post_id, '__specialty', $specialties );
-    }else{
-        // delete data
-        delete_post_meta( $post_id, '__specialty' );
+    if ( isset( $_REQUEST['visibility'] ) ) {
+        update_post_meta( $post_id, '__visibility', sanitize_text_field( $_POST['visibility'] ) );
     }
 }
 add_action( 'save_post_members', 'save_member_meta_box' );
@@ -265,6 +256,13 @@ function register_widgets() {
     register_sidebar( array(
         'name' => __( 'Contact Form', 'textdomain' ),
         'id' => 'contact-form',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+    ) );
+
+    register_sidebar( array(
+        'name' => __( 'Deelknoppen', 'textdomain' ),
+        'id' => 'share-buttons',
         'before_widget' => '<div>',
         'after_widget' => '</div>',
     ) );

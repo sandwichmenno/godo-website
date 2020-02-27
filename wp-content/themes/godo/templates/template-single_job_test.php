@@ -27,14 +27,31 @@
     $recruiterEmail = get_post_meta( $recruiter->ID, '__email', true );
     $recruiterImage =wp_get_attachment_image_src( get_post_thumbnail_id( $recruiter->ID ))[0];
     $recruiterSubtitle = get_post_meta( $recruiter->ID, '__subtitle', true );
+    $intPhone = preg_replace('/(\+)|(\(0\))|\s/','',$recruiterPhone);
+
+    $whatsappText = "Hallo " . $recruiter->post_title . ", ik zou graag wat meer willen weten over de vacature " . $job['title'];
+    if($job['address']['address1']) {
+        $whatsappText .= " in " . $job['address']['address1'];
+    }
 ?>
 
-<?php include(locate_template('templates/parts/popup-apply.php')); ?>
+<?php
+    include(locate_template('templates/parts/popup-apply.php'));
+?>
 
     <div class="bar-wrapper row">
         <div class="container row">
-            <a class="button primary dark open-apply">Ik wil deze baan!</a>
-            <a class="button primary dark open-alarm">Deze vacature delen</a>
+            <a class="button primary dark open-apply">Ik wil deze baan!</a><div class="share-dropdown">
+                <a class="button primary dark open-share top">Deze vacature delen</a>
+                <ul class="shareButtons top">
+                    <li><a href="#" onClick="MyWindow=window.open('http://www.linkedin.com/shareArticle?mini=true&url='+ window.location.href,'LinkedInWindow','width=600,height=300'); return false;"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/socials/linkedin.svg"> LinkedIn</a></li>
+                    <li><a href="#" onclick="javascript:window.location='mailto:?body=' + window.location;"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/socials/email.svg"> Email</a></li>
+                    <li><a href="#" onClick="MyWindow=window.open('https://wa.me/?text='+ window.location.href,'LinkedInWindow','width=600,height=300'); return false;"> <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/socials/whatsapp.svg"> WhatsApp</a></li>
+                    <li><a href="#" onClick="MyWindow=window.open('https://telegram.me/share/url?url='+ window.location.href,'LinkedInWindow','width=600,height=300'); return false;"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/socials/telegram.svg"> Telegram</a></li>
+                    <li><a href="#" onClick="MyWindow=window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.href,'FacebookWindow','width=600,height=300'); return false;"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/socials/facebook.svg"> Facebook</a></li>
+                    <li><a href="#" onClick="MyWindow=window.open('https://twitter.com/intent/tweet?text=' + window.location.href,'TwitterWindow','width=600,height=300'); return false;"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/socials/twitter.svg"> Twitter</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -43,13 +60,27 @@
         <div class="container row">
             <div class="hero-title">
                 <h3><?php echo $job['title']; ?></h3>
+
                 <div class="location">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/map-pin-white.svg">
-                    <?php echo $job['address']['address1']; ?>
+                    <?php if($job['address']['address1']) { ?>
+                            <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/map-pin-white.svg">
+                            <?php echo $job['address']['address1']; ?>
+                    <?php } ?>
                 </div>
+
                 <div class="row">
                     <a class="button primary open-apply">Solliciteren</a>
-                    <a class="button primary open-alarm">Delen</a>
+                    <div class="share-dropdown">
+                        <a class="button primary open-share">Delen</a>
+                        <ul class="shareButtons bottom">
+                            <li><a href="#" onClick="MyWindow=window.open('http://www.linkedin.com/shareArticle?mini=true&url='+ window.location.href,'LinkedInWindow','width=600,height=300'); return false;"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/socials/linkedin.svg"> LinkedIn</a></li>
+                            <li><a href="#" onclick="javascript:window.location='mailto:?body=' + window.location;"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/socials/email.svg"> Email</a></li>
+                            <li><a href="#" onClick="MyWindow=window.open('https://wa.me/?text='+ window.location.href,'LinkedInWindow','width=600,height=300'); return false;"> <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/socials/whatsapp.svg"> WhatsApp</a></li>
+                            <li><a href="#" onClick="MyWindow=window.open('https://telegram.me/share/url?url='+ window.location.href,'LinkedInWindow','width=600,height=300'); return false;"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/socials/telegram.svg"> Telegram</a></li>
+                            <li><a href="#" onClick="MyWindow=window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.href,'FacebookWindow','width=600,height=300'); return false;"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/socials/facebook.svg"> Facebook</a></li>
+                            <li><a href="#" onClick="MyWindow=window.open('https://twitter.com/intent/tweet?text=' + window.location.href,'TwitterWindow','width=600,height=300'); return false;"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/socials/twitter.svg"> Twitter</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -101,28 +132,7 @@
             <div class="row buttons">
                 <a href="tel:<?php echo $recruiterPhone ?>" class="button primary dark"><?php echo $recruiterPhone; ?></a>
                 <a href="mailto:<?php echo $recruiterEmail ?>" class="button primary dark"><?php echo $recruiterEmail; ?></a>
-                <a class="button primary dark">Stuur mij een appje</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="page-section">
-        <div class="container">
-            <h2>Meer vacatures zoals deze</h2>
-            <div class="job">
-                <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_design.svg" class="icon">
-                <div class="job-details">
-                    <h3>Digital product designer</h3>
-                    <div class="tags">
-                        <div class="tag design">UI</div>
-                        <div class="tag design">UX</div>
-                        <div class="tag design">Concepting</div>
-                    </div>
-                    <div class="location">
-                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/map-pin.svg">
-                        Amersfoort
-                    </div>
-                </div>
+                <a href="#" onClick="MyWindow=window.open('https://wa.me/<?php echo $intPhone ?>?text=<?php echo $whatsappText ?>','LinkedInWindow','width=600,height=300'); return false;" class="button primary dark">Stuur mij een appje</a>
             </div>
         </div>
     </section>
@@ -130,6 +140,24 @@
     <script type="text/javascript">
         jQuery(document).ready(function () {
             jQuery('.page-footer-wrapper').css('bottom', '56px');
+        });
+
+        jQuery('.open-share').click(function (e) {
+            jQuery('.shareButtons').hide();
+
+            if(jQuery(this).hasClass('top')) {
+                jQuery('.shareButtons.top').toggle();
+            } else {
+                jQuery('.shareButtons.bottom').toggle();
+            }
+        });
+
+        jQuery(document).mouseup(function (e){
+            const wrapper = jQuery(".open-share");
+
+            if (!wrapper.is(e.target) && wrapper.has(e.target).length === 0) {
+                jQuery('.shareButtons').hide();
+            }
         });
     </script>
 

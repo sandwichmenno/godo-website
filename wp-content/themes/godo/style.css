@@ -36,6 +36,7 @@ body {
     font-family: Helvetica;
     font-size: 14px;
     color: #333333;
+    overflow-x: hidden;
 }
 
 body.modal-open {
@@ -105,7 +106,7 @@ p {
 }
 
 .block .button.secondary {
-    margin-left:auto;
+    margin-right:auto;
 }
 
 .block.intro p {
@@ -142,12 +143,10 @@ p {
 }
 
 .block .block-header .contact-buttons {
-    background: #333333;
     z-index: -1;
-    margin-top: 20px;
     flex-direction: column;
     justify-content: space-around;
-    padding-left: 8px;
+    padding-left: 32px;
     width: 100%;
 }
 
@@ -385,6 +384,7 @@ section.page-section.map .block iframe {
     position: relative;
     align-self:flex-start;
     font-family: 'Suez One', serif;
+    cursor: pointer;
 }
 
 .button.primary {
@@ -423,7 +423,6 @@ section.page-section.map .block iframe {
 .button.secondary {
     color: #ffffff;
     font-size: 16px;
-    padding: 8px;
 }
 
 .button.secondary:after {
@@ -442,19 +441,44 @@ section.page-section.map .block iframe {
     height: 100vh;
     top: 0;
     left: 0;
-    background: #fafafa;
+    background: rgba(51, 51, 51, 0.7);
     z-index: 300;
     overflow-y: scroll;
+    overflow-x: hidden;
+    transition: background .25s ease-in-out;
+    display: block;
+}
+
+.popup-wrapper.hidden {
+    background: rgba(51, 51, 51, 0);
+    transform: translateY(-100%);
+}
+
+.popup-wrapper .wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+    width: 100%;
+    height: 100%;
+    background: #eeeeee;
+    overflow-y: auto;
     overflow-x: hidden;
     transition: transform .25s ease-in-out;
 }
 
-#helper.popup-wrapper, #helper.popup-wrapper .popup-header {
-    background: #ffffff;
+.popup-wrapper.hidden .wrapper {
+    transform: translateY(-100%);
 }
 
-.popup-wrapper.hidden {
-    transform: translateY(-100%);
+.popup-wrapper .container {
+    width: 90%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+#helper.popup-wrapper, #helper.popup-wrapper .popup-header {
+    background: #ffffff;
 }
 
 .popup-wrapper .popup-header {
@@ -482,6 +506,7 @@ section.page-section.map .block iframe {
     align-items: center;
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .popup-wrapper .popup-header .close span {
@@ -536,7 +561,7 @@ section.page-section.map .block iframe {
 .popup-wrapper input, .popup-wrapper textarea {
     width: 100%;
     box-sizing: border-box;
-    padding: 12px 6px;
+    padding: 12px 10px;
     font-family: Helvetica;
     font-size: 1em;
     border: 0;
@@ -622,7 +647,12 @@ section.page-section.map .block iframe {
 }
 
 .popup-wrapper form .drop-zone input[type='file'], .popup-wrapper form .drop-zone input[type='button'] {
-    background: transparent;
+    background: #eeeeee;
+    cursor: pointer;
+}
+
+.popup-wrapper form .drop-zone input[type='file'] {
+    display: none;
 }
 
 .popup-wrapper form .drop-zone.error {
@@ -645,6 +675,7 @@ section.page-section.map .block iframe {
     padding: 16px;
     border: 3px solid #333333;
     box-shadow: 5px 5px #FAB3C4;
+    display: none!important;
 }
 
 .popup-wrapper form input[type="submit"] {
@@ -676,6 +707,56 @@ section.page-section.map .block iframe {
     left: 5px;
     top: 5px;
     box-shadow: none;
+}
+
+/*Share*/
+.share-dropdown {
+    position: relative;
+}
+
+.share-dropdown ul.shareButtons {
+    margin: 8px 0 0 0;
+    padding: 0;
+    list-style-type: none;
+    position: absolute;
+    left: 0;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    color: #333333;
+    display: none;
+}
+
+.share-dropdown ul.shareButtons.top {
+    bottom: 50px;
+}
+
+.share-dropdown ul.shareButtons li {
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.share-dropdown ul.shareButtons li a {
+    width: 100%;
+    padding: 16px;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.share-dropdown ul.shareButtons li img {
+    width: 21px;
+    height: 21px;
+    margin-right: 4px;
+    vertical-align: text-bottom;
+}
+
+.share-dropdown ul.shareButtons li:hover {
+    background: #eeeeee;
+}
+
+.share-dropdown ul.shareButtons li::before {
+    display: none;
 }
 
 /*Page sections*/
@@ -757,12 +838,21 @@ section.page-section.hero-wrapper .hero #filter select {
             linear-gradient(45deg, transparent 50%, #666666 50%),
             linear-gradient(135deg, #666666 50%, transparent 50%);
     background-position:
-            calc(100% - 22px) calc(1em + 5px),
+            calc(100% - 21px) calc(1em + 5px),
             calc(100% - 16px) calc(1em + 5px);
     background-size:
             6px 6px,
             6px 6px;
     background-repeat: no-repeat;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+select::-ms-expand {
+    display: none;
 }
 
 section.page-section.hero-wrapper.alarm {
@@ -834,8 +924,23 @@ section.page-section.hero-wrapper.job-header .hero-title .button {
     margin-right: 32px;
 }
 
+section.page-section.team .block-header {
+    z-index: 2;
+}
+
 section.page-section.team .block.image {
     margin-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+section.page-section.team .block.image .block-content {
+    height: 100%;
+}
+
+section.page-section.team .block.image .button.secondary {
+    align-self: flex-end;
 }
 
 section.page-section.team .container {
@@ -859,6 +964,11 @@ section.job-section a {
 
 section.job-section .container{
     padding: 0;
+}
+
+#loader {
+    text-align: center;
+    margin-top: 32px;
 }
 
 .job {
@@ -891,6 +1001,7 @@ section.job-section .container{
     padding: 4px 10px;
     border-radius: 5px;
     margin-top: 4px;
+    margin-right: 6px;
 }
 
 .tags .tag.agile {
@@ -978,6 +1089,11 @@ section.job-section .job-helper div h3 {
     width: 100%;
 }
 
+.slider .slider-wrapper .slider-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .slider .slider-nav {
     text-align: center;
     margin-top: 16px;
@@ -1030,6 +1146,23 @@ section.job-section .job-helper div h3 {
 }
 
 /*Showcase*/
+.showcase.slider {
+    position: relative;
+}
+
+.showcase.slider .slick-slider:before{
+    content: "";
+    background: #FAB3C4;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 20px;
+}
+
+.showcase.slider img{
+    box-shadow: none;
+}
+
 .showcase.slider .slider-item {
     padding-bottom: 10px;
 }
@@ -1050,7 +1183,6 @@ section.job-section .job-helper div h3 {
 .bar-wrapper .container {
     width: 100%;
     justify-content: space-between;
-    align-items: center;
 }
 
 .bar-wrapper .button.primary {
@@ -1364,6 +1496,56 @@ section.apply-section .location img {
     .job .job-details .location {
         margin-top: 12px;
     }
+
+    .popup-wrapper .wrapper {
+        width: 35%;
+        height: 90%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .popup-wrapper.hidden .wrapper {
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
+
+    .popup-wrapper section.page-section.hero-wrapper {
+        padding-bottom: 32px;
+    }
+
+    .popup-wrapper section.page-section.hero-wrapper .container {
+        width: 95%;
+        padding: 0;
+    }
+
+    .popup-wrapper section.page-section.hero-wrapper .hero {
+        height: 260px;
+    }
+
+    .popup-wrapper section.page-section.hero-wrapper .hero-title {
+        padding: 48px 0;
+        width: 100%;
+    }
+
+    .bar-wrapper {
+        height: 72px;
+    }
+
+    .bar-wrapper .container {
+        width: 850px;
+        justify-content: flex-start;
+    }
+
+    .bar-wrapper .button.primary{
+        padding: 12px 24px;
+        margin-right: 64px;
+    }
+
+    .share-dropdown ul.shareButtons li a {
+        width: 180px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -1378,5 +1560,9 @@ section.apply-section .location img {
     .block.image.clients img {
         width: 20%;
         margin: 45px;
+    }
+
+    .bar-wrapper .container {
+        width: 1120px;
     }
 }
