@@ -898,6 +898,7 @@ section.page-section.hero-wrapper p.hero-subtitle {
 
 section.page-section.hero-wrapper.job-header {
     padding: 0;
+    background: #ffffff;
 }
 
 section.page-section.hero-wrapper.job-header .hero-title {
@@ -975,6 +976,10 @@ section.job-section .container{
     margin-top: 32px;
 }
 
+#job {
+    padding-top: 64px;
+}
+
 .job {
     padding: 6px 16px;
     border-bottom: 2px solid #f4f4f4;
@@ -989,7 +994,7 @@ section.job-section .container{
 .job .job-details {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin: 8px 0;
 }
@@ -1000,12 +1005,13 @@ section.job-section .container{
 
 .tags .tag {
     display: inline-block;
-    color: #F45C24;
-    background: rgba(244, 92, 36, 0.3);
+    color: #666666;
+    background: #DDDDDD;
     padding: 4px 10px;
     border-radius: 5px;
     margin-top: 4px;
     margin-right: 6px;
+    text-transform: capitalize;
 }
 
 .tags .tag.agile {
@@ -1152,6 +1158,7 @@ section.job-section .job-helper div h3 {
 /*Showcase*/
 .showcase.slider {
     position: relative;
+    overflow: hidden;
 }
 
 .showcase.slider .slick-slider:before{
@@ -1463,7 +1470,8 @@ section.apply-section .location img {
     }
 
     section.page-section.hero-wrapper {
-        padding-bottom: 64px;
+        padding-bottom: 0;
+        background: #f4f4f4;
     }
 
     .slider.job-categories {
@@ -1517,6 +1525,7 @@ section.apply-section .location img {
 
     .popup-wrapper section.page-section.hero-wrapper {
         padding-bottom: 32px;
+        background: #eee;
     }
 
     .popup-wrapper section.page-section.hero-wrapper .container {

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="page-section hero-wrapper">
+<section class="page-section hero-wrapper" style="background: #ffffff; padding-bottom: 64px;">
     <div class="hero" style="background: #f4f4f4 url('<?php bloginfo('template_directory'); ?>/assets/images/heros/hero_front.jpg') no-repeat center center; background-size: cover;"></div>
     <div class="container">
         <div class="hero-title"><h1><?php echo get_theme_mod( 'front_top_banner'); ?></h1></div>
@@ -92,20 +92,31 @@
         <div class="slider-wrapper">
             <div class="slider-item">
                 <div class="block image">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/temp/office1.jpg"/>
+                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/temp/slider1.jpg"/>
                 </div>
             </div>
 
             <div class="slider-item">
                 <div class="block image">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/temp/kerst_2018_1.jpg"/>
+                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/temp/slider2.jpg"/>
                 </div>
             </div>
 
+            <div class="slider-item">
+                <div class="block image">
+                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/temp/slider3.jpg"/>
+                </div>
+            </div>
 
             <div class="slider-item">
                 <div class="block image">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/temp/kerst_2018_2.jpg"/>
+                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/temp/slider4.jpg"/>
+                </div>
+            </div>
+
+            <div class="slider-item">
+                <div class="block image">
+                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/temp/slider5.jpg"/>
                 </div>
             </div>
         </div>

@@ -17,13 +17,13 @@
         <div class="container row">
             <div class="block intro row">
                 <div>
-                    <p>‘Wij geloven dat de juiste persoon op de juiste plaats bedrijven sneller laat groeien. We gaan voor een lange termijn relatie met onze opdrachtgevers en onze kandidaten. Daarom nemen we de tijd om de juiste match te maken. Zonder duwen of trekken. Daarbij kijken we niet alleen naar de bewezen skills van onze kandidaten, maar ook naar hun groeipotentieel. Recruitment is een ambacht. GoDo it.’</p>
+                    <p>Wij geloven dat de juiste persoon op de juiste plaats bedrijven sneller laat groeien. We gaan voor een lange termijn relatie met onze opdrachtgevers en onze kandidaten. Daarom nemen we de tijd om de juiste match te maken. Zonder duwen of trekken. Daarbij kijken we niet alleen naar de bewezen skills van onze kandidaten, maar ook naar hun groeipotentieel. Recruitment is een ambacht. GoDo it.</p>
                     <a href="/contact" class="button secondary dark">Neem contact met ons op</a>
                 </div>
             </div>
 
             <div class="block image" style="margin-top: 32px;">
-                <img src="<?php bloginfo('template_directory'); ?>/assets/images/temp/kerstfeest2019.jpg"/>
+                <img src="<?php bloginfo('template_directory'); ?>/assets/images/temp/kerstfeest2019_2.jpg"/>
             </div>
         </div>
     </section>
@@ -46,7 +46,7 @@
                 <div class="block image">
                     <div class="block-header">
                         <img src="<?php the_post_thumbnail_url(); ?>"/>
-                        <h2><?php the_title() ?> <a href="<?php echo $linkedin ?>"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/linkedin-white.svg" class="icon"/></a></h2>
+                        <h2><?php the_title() ?> <a href="<?php echo $linkedin ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/linkedin-white.svg" class="icon"/></a></h2>
                     </div>
 
                     <div class="block-content row">
@@ -77,7 +77,7 @@
                 <?php endwhile; endif; wp_reset_postdata(); ?>
             </div>
 
-            <div style="text-align: center;"><a href="/" class="button primary dark">Ik zoek digitale professionals</a></div>
+            <div style="text-align: center;"><a href="/contact" class="button primary dark">Ik zoek digitale professionals</a></div>
         </div>
     </section>
 

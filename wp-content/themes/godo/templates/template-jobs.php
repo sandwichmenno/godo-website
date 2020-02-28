@@ -7,8 +7,21 @@
 <?php get_header(); ?>
 <?php
 $theme_settings = get_option( 'theme_settings' );
-$categoryFilter = ["Front-end developer", "Back-end developer", "Product Owner", "Content manager"];
-$locationFilter = ["Amsterdam", "Randstad"];
+$categoryFilter = [
+    "Front-end Developer",
+    "Back-end Developer",
+    "Designer",
+    "Content",
+    "Communicatie",
+    "User Research",
+    "Product Owner",
+    "Scrum Master",
+    "Recruitment",
+    "Data en Growth",
+    "Financial Controller",
+    "IT Support Engineer",
+    "Linux Engineer"];
+$locationFilter = ["Amsterdam", "Rotterdam", "Amersfoort", "Utrecht"];
 ?>
 
     <section class="page-section hero-wrapper">

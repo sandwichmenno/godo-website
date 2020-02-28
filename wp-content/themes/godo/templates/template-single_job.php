@@ -86,7 +86,7 @@
         </div>
     </section>
 
-    <section class="page-section">
+    <section class="page-section" style="padding: 0;">
         <div class="container">
             <?php echo $desc; ?>
         </div>
@@ -111,7 +111,7 @@
         </div>
     </section>
 
-    <section class="page-section dark-gray" style="color: #fff;">
+    <section class="page-section dark-gray" style="color: #fff; padding: 24px 0;">
         <div class="container">
             <?php echo $notes; ?>
         </div>

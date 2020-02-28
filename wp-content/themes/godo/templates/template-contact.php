@@ -45,7 +45,7 @@
                             <div class="contact-buttons row">
                                 <h3><?php the_title() ?></h3>
                                 <?php if($email) { ?><a href="mailto:<?php echo $email; ?>" class="button secondary dark"><?php echo $email ?></a><?php } ?>
-                                <?php if($phone) { ?><a href="<?php echo $phone; ?>" class="button secondary dark"><?php echo $phone ?></a><?php } ?>
+                                <?php if($phone) { ?><a href="tel:<?php echo $phone; ?>" class="button secondary dark"><?php echo $phone ?></a><?php } ?>
                             </div>
                         </div>
                     </div>

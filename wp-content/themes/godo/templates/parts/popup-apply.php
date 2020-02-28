@@ -48,7 +48,7 @@
                     <p>
                         <div class="drop-zone" id="drop-zone">
                             <div class="drag-files">
-                                    <p>Sleep je CV en/of Portfolio bestanden hierheen</p>
+                                    <p>Sleep je cv en/of portfolio bestanden hierheen</p>
                                     <p>of</p>
                                     <p><input type="button" value="Blader door je bestanden" onclick="file_explorer();"></p>
                                     <input type="file" class="selectFile" id="file" name="file[]" multiple>
@@ -61,19 +61,19 @@
                     <p style="text-align: center;">en/of</p>
 
                     <p>
-                        <label>Digitale CV/portfolio/LinkedIn</label>
+                        <label>Link naar je cv/portfolio/LinkedIn</label>
                         <input type="text" placeholder="www.johndoe.nl" id="website" name="website" />
                     </p>
 
                     <p>
-                        <label>Extra toevoegingen</label>
-                        <textarea placeholder="Hallo GoDo, ik zou graag deze functie willen vervullen omdat..." id="additions" name="additions"></textarea>
+                        <label>Korte motivatie of toelichting</label>
+                        <textarea placeholder="Hi, wat een leuke vacature! Dit is echt een job voor mij omdat, …" id="additions" name="additions"></textarea>
                     </p>
 
                     <p>
                         <label for="gdpr" class="checkbox">
                             <input type="checkbox" id="gdpr" />
-                            <span class="label">Hebben wij je toestemming om je NAW-gegevens, telefoonnummer en cv (en eventueel je portfolio) te bewaren in onze database?</span>
+                            <span class="label">Krijgen we je toestemming om je gegevens te bewaren? We gaan er natuurlijk goed mee om. Weten hoe? Lees het in ons <a href="/privacy-statement" target="_blank">privacy statement</a></span>
                         </label>
 
                         <label class="checkbox-label">
@@ -92,27 +92,27 @@
             <section class="page-section hero-wrapper">
                 <div class="hero" style="background: #f4f4f4 url('<?php bloginfo('template_directory'); ?>/assets/images/heros/hero_success.jpg') no-repeat center center; background-size: cover;"></div>
                 <div class="container row">
-                    <div class="hero-title"><h1>We hebben je sollicitatie ontvangen!</h1></div>
+                    <div class="hero-title"><h1>Je hebt gesolliciteerd.</h1></div>
                 </div>
             </section>
 
             <div class="container">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempus dolor quis nibh interdum, vitae auctor dui cursus. Integer congue felis sed erat maximus elementum. Sed gravida fringilla elit, id tempor lorem lacinia in. Etiam id tellus in leo luctus finibus.
+                <p>Het is gelukt! We hebben je sollicitatie ontvangen. So... what’s next? We gaan er zo snel mogelijk naar kijken. Daarna nemen we contact met je op om je sollicitatie te bespreken. Lijkt het de ideale match? Dan nodigen we je graag uit voor een kop koffie. Speak to you soon!</p>
 
                 <div style="margin-top: 16px; text-align: center;">
                     <h2>Functie</h2>
-                    <span><?php echo $job['title']; ?></span>
+                    <span><p><?php echo $job['title']; ?></p></span>
 
                     <?php if($job['address']['address1']) { ?>
                         <h2 style="margin-top: 16px;">Locatie</h2>
-                        <span><?php echo $job['address']['address1']; ?></span>
+                        <span><p><?php echo $job['address']['address1']; ?></p></span>
                     <?php } ?>
 
                     <h2 style="margin-top: 16px;">Gegevens</h2>
                     <span class="userInfo"></span>
                 </div>
 
-                <p style="float: right;"><a href="" class="button primary dark" style="margin-left: auto;">Venster sluiten</a></p>
+                <p style="float: right;"><div class="button primary dark close" style="margin-left: auto;">Over en sluiten</div></p>
             </div>
         </div>
     </div>

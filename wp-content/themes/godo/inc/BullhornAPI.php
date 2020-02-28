@@ -182,8 +182,7 @@ class BullhornAPI {
             return FALSE;
         endif;
 
-        //+AND+isPublic=1
-        $query = 'fields=id,title,address,categories,skills&where=isDeleted=false';
+        $query = 'fields=id,title,address,categories,skills&where=isDeleted=false+AND+isPublic=1';
 
         if(FALSE === $this->comm(sprintf('query/JobOrder?%s', $query), 'GET')) :
             return FALSE;
