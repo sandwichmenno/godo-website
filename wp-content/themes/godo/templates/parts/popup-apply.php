@@ -5,6 +5,12 @@
             <div class="close">sluiten <span></span></div>
         </div>
 
+
+        <div id="loader" style="margin-top: 64px;">
+            <p>Je sollicitatie wordt verwerkt</p>
+            <img src="<?php bloginfo('template_directory'); ?>/assets/images/loader.svg">
+        </div>
+
         <div id="applyForm">
             <section class="apply-section">
                 <h3><?php echo $job['title']; ?></h3>
@@ -49,6 +55,8 @@
                             </div>
                         </div>
                     </p>
+
+                    <div id="file-list"></div>
 
                     <p style="text-align: center;">en/of</p>
 
@@ -95,8 +103,10 @@
                     <h2>Functie</h2>
                     <span><?php echo $job['title']; ?></span>
 
-                    <h2 style="margin-top: 16px;">Locatie</h2>
-                    <span><?php echo $job['address']['address1']; ?></span>
+                    <?php if($job['address']['address1']) { ?>
+                        <h2 style="margin-top: 16px;">Locatie</h2>
+                        <span><?php echo $job['address']['address1']; ?></span>
+                    <?php } ?>
 
                     <h2 style="margin-top: 16px;">Gegevens</h2>
                     <span class="userInfo"></span>
@@ -113,7 +123,37 @@
         document.getElementById('file').click();
     }
 
+    function changeFileList(files) {
+        jQuery('#file-list').empty();
+        const names = jQuery.map(files, function (val) { return val.name; });
+
+        jQuery.each(names, function (i, name) {
+            jQuery('#file-list').append("<p>" + name + "</p>");
+        });
+    }
+
+    let droppedFiles = false;
+    const dropZone = jQuery('#drop-zone');
+
+    dropZone.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    })
+        .on('dragover dragenter', function() {
+            dropZone.addClass('is-dragover');
+        })
+        .on('dragleave dragend drop', function() {
+            dropZone.removeClass('is-dragover');
+        })
+        .on('drop', function(e) {
+            droppedFiles = e.originalEvent.dataTransfer.files;
+
+            changeFileList(droppedFiles);
+        });
+
     jQuery(document).ready(function () {
+        jQuery('#loader').hide();
+
         jQuery('#apply .close, .open-apply').click(function (e) {
             togglePopup();
         });
@@ -129,9 +169,14 @@
             }
         });
 
+        jQuery('.selectFile').on("change", function () {
+            const files = jQuery('.selectFile').prop("files");
+            changeFileList(files);
+        });
+
         jQuery('form#apply').on('submit', function(e){
             const form_data = new FormData();
-            const files = jQuery('#file')[0].files;
+            let files;
             const data = {
                 firstName: jQuery("#firstName").val(),
                 lastName: jQuery("#lastName").val(),
@@ -141,6 +186,14 @@
                 additions: jQuery("#additions").val(),
             };
 
+            if (droppedFiles) {
+                jQuery.each( droppedFiles, function(i, file) {
+                    files = droppedFiles;
+                });
+            } else {
+                files = jQuery('#file')[0].files;
+            }
+
             form_data.append('action', 'ajaxapply');
             form_data.append('firstName', data['firstName']);
             form_data.append('lastName', data['lastName']);
@@ -148,10 +201,22 @@
             form_data.append('phone', data['phone']);
             form_data.append('website', data['website']);
             form_data.append('additions', data['additions']);
+
+            if (jQuery('#gdpr').prop('checked')) {
+                form_data.append('comments', 'Deze gebruiker heeft WEL toestemming gegeven om zijn/haar gegevens langer te bewaren');
+            } else {
+
+                form_data.append('comments', 'Deze gebruiker heeft GEEN toestemming gegeven om zijn/haar gegevens langer te bewaren');
+            }
+
             form_data.append('job', '<?php echo $job['id']; ?>');
 
             for (let i = 0; i < files.length; i++) {
                 form_data.append('file[]', files[i]);
+            }
+
+            for (let pair of form_data.entries()) {
+                console.log(pair[1]);
             }
 
             jQuery.ajax({
@@ -160,8 +225,14 @@
                 processData: false,
                 contentType: false,
                 data: form_data,
+                beforeSend: function() {
+                    jQuery('#loader').show();
+                    jQuery('#applyForm').hide();
+                },
+                complete: function(){
+                    jQuery('#loader').hide();
+                },
                 success: function(response){
-                    console.log(response);
                     const res = JSON.parse(response);
 
                     jQuery('#apply .error').removeClass('error');
@@ -179,6 +250,8 @@
                         jQuery('#applyForm').remove();
                         scrollToTop();
                     } else if (res.success === "empty") {
+                        jQuery('#applyForm').show();
+
                         jQuery.each(res.errors, function(key, value) {
                             const input = jQuery('#'+ key + '');
                             input.addClass('error');

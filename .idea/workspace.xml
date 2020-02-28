@@ -2,22 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1df4acd-14de-4b8b-8fe8-f67a6d46665c" name="Default Changelist" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/themes/godo/inc/ThemeSettings.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-share.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/themes/godo/assets/images/icons/icon_coding.svg" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/themes/godo/inc/ThemeCustomization.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-jobs-old.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job-old.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job_test.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/footer.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/footer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/front-page.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/front-page.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/functions.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornAPI.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornAPI.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornSettings.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornSettings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/page.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/page.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/style.css" afterPath="$PROJECT_DIR$/wp-content/themes/godo/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-apply.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-apply.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-contact.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-about.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-about.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-contact.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job_test.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job_test.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-jobs.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-jobs.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job.php" afterPath="$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,22 +39,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="page.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/page.php">
+      <file leaf-file-name="template-jobs.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-jobs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="27" column="66" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="popup-apply.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-apply.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-              <folding />
+            <state relative-caret-position="21">
+              <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+              <folding>
+                <element signature="e#6#45#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,24 +54,63 @@
       <file leaf-file-name="template-single_job.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="139" column="11" lean-forward="true" selection-start-line="139" selection-start-column="11" selection-end-line="139" selection-end-column="11" />
+            <state relative-caret-position="42">
+              <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+              <folding>
+                <marker date="1582885638371" expanded="true" signature="3518:3542" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template-jobs-old.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-jobs-old.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template-single_job_test.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job_test.php">
+      <file leaf-file-name="template-single_job-old.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job-old.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="149" column="20" lean-forward="true" selection-start-line="149" selection-start-column="20" selection-end-line="149" selection-end-column="20" />
+            <state relative-caret-position="42">
+              <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="front-page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/front-page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="94" column="24" lean-forward="false" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThemeCustomization.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/inc/ThemeCustomization.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="122" column="27" lean-forward="true" selection-start-line="122" selection-start-column="27" selection-end-line="122" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="popup-apply.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-apply.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="126" column="37" lean-forward="false" selection-start-line="126" selection-start-column="37" selection-end-line="126" selection-end-column="37" />
               <folding>
-                <element signature="e#6#56#0#PHP" expanded="true" />
-                <element signature="e#3516#3698#0#HTML" expanded="true" />
-                <marker date="1582818763477" expanded="true" signature="3523:3547" ph="..." />
-                <marker date="1582818763477" expanded="true" signature="8362:8428" ph="..." />
-                <marker date="1582818763477" expanded="true" signature="8407:8428" ph="{...}" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -92,20 +119,20 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="257" column="29" lean-forward="false" selection-start-line="257" selection-start-column="17" selection-end-line="257" selection-end-column="29" />
+            <state relative-caret-position="522">
+              <caret line="55" column="18" lean-forward="true" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
               <folding>
-                <marker date="1582809081237" expanded="true" signature="7861:7885" ph="..." />
+                <marker date="1582885859669" expanded="true" signature="8065:8089" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template-about.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-about.php">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="58" column="58" lean-forward="true" selection-start-line="58" selection-start-column="58" selection-end-line="58" selection-end-column="58" />
+            <state relative-caret-position="665">
+              <caret line="665" column="42" lean-forward="false" selection-start-line="665" selection-start-column="42" selection-end-line="665" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -114,41 +141,9 @@
       <file leaf-file-name="BullhornAPI.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornAPI.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="177" column="25" lean-forward="false" selection-start-line="177" selection-start-column="25" selection-end-line="177" selection-end-column="25" />
+            <state relative-caret-position="-1956">
+              <caret line="101" column="67" lean-forward="false" selection-start-line="101" selection-start-column="67" selection-end-line="101" selection-end-column="67" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="508" column="20" lean-forward="false" selection-start-line="508" selection-start-column="20" selection-end-line="508" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="popup-contact.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-contact.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="28" column="8" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="37" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="template-contact.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-contact.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="47" column="83" lean-forward="false" selection-start-line="47" selection-start-column="83" selection-end-line="47" selection-end-column="83" />
-              <folding>
-                <element signature="e#221#382#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -165,18 +160,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setting</find>
-      <find>showcase</find>
-      <find>box-shadow</find>
-      <find>.showcase</find>
-      <find>isPublic</find>
-      <find>getCate</find>
-      <find>button.seco</find>
-      <find>body</find>
-      <find>margin-left: auto</find>
-      <find>.block .button.secondary</find>
-      <find>.contact-</find>
-      <find>block-header</find>
       <find>.contact-but</find>
       <find>select</find>
       <find>.button</find>
@@ -187,7 +170,6 @@
       <find>.hidden</find>
       <find>.wrapper</find>
       <find>response</find>
-      <find>backgroun</find>
       <find>.team</find>
       <find>.container</find>
       <find>contact-form</find>
@@ -195,6 +177,19 @@
       <find>&lt;script</find>
       <find>.sharebuttons</find>
       <find>popup-header .c</find>
+      <find>.page-header-wrapper</find>
+      <find>backgroun</find>
+      <find>popup-wra</find>
+      <find>add</find>
+      <find>candidate</find>
+      <find>createC</find>
+      <find>create</find>
+      <find>loader</find>
+      <find>jobsubmission</find>
+      <find>comm(</find>
+      <find>findCandidate</find>
+      <find>dropzone</find>
+      <find>changeFileList</find>
     </findStrings>
     <replaceStrings>
       <replace>boxSizing</replace>
@@ -213,7 +208,6 @@
         <option value="$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornConnect.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornErrors.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/inc/b.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/template-jobs.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/inc/test.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/inc/ajax-apply-script.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/assets/js/upload.js" />
@@ -239,19 +233,23 @@
         <option value="$PROJECT_DIR$/wp-content/themes/godo/assets/images/loader.svg" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornSettings.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/inc/ThemeSettings.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornAPI.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/godo/front-page.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/godo/page.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/footer.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-contact.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/godo/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-share.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job_test.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-apply.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/godo/style.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/template-about.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/template-contact.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/godo/inc/ThemeCustomization.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/godo/front-page.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/godo/page.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/template-jobs.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job-old.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/template-jobs-old.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornAPI.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/godo/functions.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/godo/style.css" />
+        <option value="$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-apply.php" />
       </list>
     </option>
   </component>
@@ -433,32 +431,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="godo-website" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="godo-website" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="godo" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -588,12 +560,12 @@
       <workItem from="1581588194673" duration="38438000" />
       <workItem from="1582102453648" duration="705000" />
       <workItem from="1582103430094" duration="98129000" />
-      <workItem from="1582791345805" duration="23838000" />
+      <workItem from="1582791345805" duration="33832000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250357000" />
+    <option name="totallyTimeSpent" value="260351000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -632,22 +604,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornAPI.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornSettings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -661,7 +617,7 @@
         <state relative-caret-position="84">
           <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="32" />
           <folding>
-            <marker date="1582809081237" expanded="true" signature="7861:7885" ph="..." />
+            <marker date="1582885859669" expanded="true" signature="8065:8089" ph="..." />
           </folding>
         </state>
       </provider>
@@ -860,13 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="1" column="26" lean-forward="false" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-jobs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2802">
-          <caret line="8" column="67" lean-forward="true" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
           <folding />
         </state>
       </provider>
@@ -895,32 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/front-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="165" column="38" lean-forward="false" selection-start-line="165" selection-start-column="38" selection-end-line="165" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="257" column="29" lean-forward="false" selection-start-line="257" selection-start-column="17" selection-end-line="257" selection-end-column="29" />
-          <folding>
-            <marker date="1582809081237" expanded="true" signature="7861:7885" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornAPI.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="177" column="25" lean-forward="false" selection-start-line="177" selection-start-column="25" selection-end-line="177" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-share.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-72">
@@ -939,52 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="139" column="11" lean-forward="true" selection-start-line="139" selection-start-column="11" selection-end-line="139" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="508" column="20" lean-forward="false" selection-start-line="508" selection-start-column="20" selection-end-line="508" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="27" column="66" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-apply.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job_test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="149" column="20" lean-forward="true" selection-start-line="149" selection-start-column="20" selection-end-line="149" selection-end-column="20" />
-          <folding>
-            <element signature="e#6#56#0#PHP" expanded="true" />
-            <element signature="e#3516#3698#0#HTML" expanded="true" />
-            <marker date="1582818763477" expanded="true" signature="3523:3547" ph="..." />
-            <marker date="1582818763477" expanded="true" signature="8362:8428" ph="..." />
-            <marker date="1582818763477" expanded="true" signature="8407:8428" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-about.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -998,7 +875,104 @@
         <state relative-caret-position="353">
           <caret line="47" column="83" lean-forward="false" selection-start-line="47" selection-start-column="83" selection-end-line="47" selection-end-column="83" />
           <folding>
-            <element signature="e#221#382#0#HTML" expanded="true" />
+            <element signature="e#221#382#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/front-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="94" column="24" lean-forward="false" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="29" column="30" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="207" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding>
+            <marker date="1582885638371" expanded="true" signature="3518:3542" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-jobs-old.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-jobs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+          <folding>
+            <element signature="e#6#45#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/inc/ThemeCustomization.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="122" column="27" lean-forward="true" selection-start-line="122" selection-start-column="27" selection-end-line="122" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/template-single_job-old.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/inc/BullhornAPI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1956">
+          <caret line="101" column="67" lean-forward="false" selection-start-line="101" selection-start-column="67" selection-end-line="101" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="55" column="18" lean-forward="true" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+          <folding>
+            <marker date="1582885859669" expanded="true" signature="8065:8089" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="665" column="42" lean-forward="false" selection-start-line="665" selection-start-column="42" selection-end-line="665" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/godo/templates/parts/popup-apply.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="126" column="37" lean-forward="false" selection-start-line="126" selection-start-column="37" selection-end-line="126" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

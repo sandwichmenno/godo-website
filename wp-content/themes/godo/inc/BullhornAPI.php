@@ -99,6 +99,17 @@ class BullhornAPI {
         return $candidate_id;
     }
 
+    public function updateCandidate($candidate_id, $resume_files) {
+        if(NULL !== $resume_files) :
+            $files = $this->candidateAttachResume($candidate_id, $resume_files);
+            if(FALSE === $files) :
+                return FALSE;
+            endif;
+        endif;
+
+        return $candidate_id;
+    }
+
     public function candidateAttachResume($candidate_id, $resume_files) {
         if(NULL !== $resume_files) {
             $encoded_files = array();

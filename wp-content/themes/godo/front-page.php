@@ -3,8 +3,8 @@
 <section class="page-section hero-wrapper">
     <div class="hero" style="background: #f4f4f4 url('<?php bloginfo('template_directory'); ?>/assets/images/heros/hero_front.jpg') no-repeat center center; background-size: cover;"></div>
     <div class="container">
-        <div class="hero-title"><h1>Work. Set. Match.</h1></div>
-        <p class="hero-subtitle">We helpen mensen en bedrijven groeien door het maken van de juiste match.</p>
+        <div class="hero-title"><h1><?php echo get_theme_mod( 'front_top_banner'); ?></h1></div>
+        <p class="hero-subtitle"><?php echo get_theme_mod( 'front_top_tagline'); ?></p>
         <a href="/over-godo" class="button primary dark">Meer over GoDo</a>
         <a href="/contact" class="button primary dark" style="margin-left: 16px;">Neem contact op</a>
     </div>
@@ -13,8 +13,8 @@
 <section class="page-section gray">
     <div class="container row">
         <div class="block intro">
-            <h2>Vind jouw volgende stap</h2>
-            <p> We zetten ons netwerk in om je te matchen met een job die past bij jouw volgende stap. We willen veel van je weten, zodat we je op het goede moment kunnen introduceren bij de mooiste bedrijven; van veel belovende start-ups, bekende corporaties tot de agencies van o.a. MakerStreet. Want van een goede match wordt iedereen beter.</p>
+            <h2><?php echo get_theme_mod( 'front_job_header'); ?></h2>
+            <p><?php echo get_theme_mod( 'front_job_body'); ?></p>
         </div>
     </div>
 
@@ -78,9 +78,9 @@
             <img src="<?php bloginfo('template_directory'); ?>/assets/images/temp/helloSmall.jpg"/>
             <div class="block-content">
                 <div class="content">
-                    <h2>We zijn matchmakers die nauw samenwerken met onze opdrachtgevers. </h2>
-                    <p>Door actief contact te houden met ons grote netwerk vinden we snel de juiste kandidaat voor je. Mensen met ervaring die toe zijn aan een volgende stap. Aan stalken doen we niet, wel aan hard werken en doorzetten.</p>
-                    <a href="/contact" class="button secondary">Neem contact op</a>
+                    <h2><?php echo get_theme_mod( 'front_clients_header'); ?></h2>
+                    <p><?php echo get_theme_mod( 'front_clients_body'); ?></p>
+                    <a href="/contact" class="button secondary"><?php echo get_theme_mod( 'front_clients_button'); ?></a>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 <?php
+require_once(get_template_directory() . '/inc/ThemeCustomization.php');
 require_once(get_template_directory() . '/inc/BullhornSettings.php');
 require_once(get_template_directory() . '/inc/ThemeSettings.php');
 require_once(get_template_directory() . '/inc/BullhornAPI.php');
@@ -44,12 +45,14 @@ function ajax_apply(){
                     'description' => $post_data['website'],
                     'email' => $post_data['email'],
                     'mobile' => $post_data['phone'],
+                    'comments' => $post_data['comments'],
                 );
 
                 $candidate = $bullhorn->createCandidate($candidate_data, $candidate_files);
                 if(FALSE === $candidate) : $failed = true; endif;
             else :
                 $candidate = $duplicate_candidate['id'];
+                $bullhorn->updateCandidate($candidate, $candidate_files);
             endif;
         endif;
 

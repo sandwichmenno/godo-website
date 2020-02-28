@@ -5,173 +5,204 @@
 ?>
 
 <?php get_header(); ?>
-    <?php get_template_part( 'templates/parts/popup', 'alarm' ); ?>
-    <?php get_template_part( 'templates/parts/popup', 'helper' ); ?>
-
-    <div class="bar-wrapper row">
-        <div class="container row">
-            Geen vacature meer missen?
-            <a class="button primary dark open-alarm">Alarm instellen</a>
-        </div>
-    </div>
+<?php
+$theme_settings = get_option( 'theme_settings' );
+$categoryFilter = ["Front-end developer", "Back-end developer", "Product Owner", "Content manager"];
+$locationFilter = ["Amsterdam", "Randstad"];
+?>
 
     <section class="page-section hero-wrapper">
         <div class="hero no-image" style="background: #f4f4f4">
-            <h1>Onze vacatures</h1>
-            <form id="filter" class="row">
-                <select name="position">
-                    <option value="all" selected>Alle functies</option>
-                    <option value="back-end developer">Back-end developer</option>
-                    <option value="front-end developer">Front-end developer</option>
-                    <option value="ux designer">Ux Designer</option>
-                    <option value="visual designer">Visual Designer</option>
-                </select>
+            <div class="container">
+                <h1>Onze vacatures</h1>
+                <form id="filter" class="row">
+                    <select id="filterCategory" name="position" onchange="createFilter('category')">
+                        <option value="all" selected>Alle functies</option>
+                        <?php foreach($categoryFilter as $filter) { ?>
+                            <option value="<?php echo $filter; ?>"><?php echo $filter; ?></option>
+                        <?php } ?>
+                    </select>
 
-                <select name="location">
-                    <option value="all" selected>Alle locaties</option>
-                    <option value="amersfoort">Amersfoort</option>
-                    <option value="amsterdam">Amsterdam</option>
-                    <option value="rotterdam">Rotterdam</option>
-                    <option value="amsterdam">Utrecht</option>
-                </select>
-            </form>
+                    <select id="filterLocation" name="location" onchange="createFilter('location')">
+                        <option value="all" selected>Alle locaties</option>
+                        <?php foreach($locationFilter as $filter) { ?>
+                            <option value="<?php echo $filter; ?>"><?php echo $filter; ?></option>
+                        <?php } ?>
+                    </select>
+                </form>
+            </div>
         </div>
     </section>
 
     <section class="job-section">
-        <div class="job">
-            <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_design.svg" class="icon">
-            <div class="job-details">
-                <h3>Digital product designer</h3>
-                <div class="tags">
-                    <div class="tag design">UI</div>
-                    <div class="tag design">UX</div>
-                    <div class="tag design">Concepting</div>
-                </div>
-                <div class="location">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/map-pin.svg">
-                    Amersfoort
-                </div>
-            </div>
-        </div>
-
-        <div class="job">
-            <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_agile.svg" class="icon">
-            <div class="job-details">
-                <h3>Digital Project Manager</h3>
-                <div class="tags">
-                    <div class="tag agile">Agile</div>
-                    <div class="tag dev">Software development</div>
-                </div>
-                <div class="location">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/map-pin.svg">
-                    Hilversum
-                </div>
-            </div>
-        </div>
-
-        <div class="job">
-            <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_coding.svg" class="icon">
-            <div class="job-details">
-                <h3>Front-end developer in Den Bosch</h3>
-                <div class="tags">
-                    <div class="tag dev">Angular</div>
-                    <div class="tag dev">Gulp</div>
-                    <div class="tag dev">Webpack</div>
-                    <div class="tag agile">Scrum</div>
-                </div>
-                <div class="location">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/map-pin.svg">
-                    's-Hertogenbosch
-                </div>
-            </div>
-        </div>
-
-        <div class="job">
-            <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_coding.svg" class="icon">
-            <div class="job-details">
-                <h3>Full Stack Developer (PHP)</h3>
-                <div class="tags">
-                    <div class="tag dev">Symfony</div>
-                    <div class="tag dev">MySQL</div>
-                    <div class="tag dev">jQuery</div>
-                    <div class="tag agile">Scrum</div>
-                </div>
-                <div class="location">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/map-pin.svg">
-                    Amsterdam
-                </div>
-            </div>
-        </div>
-
-        <div class="job-helper row">
-            <span>Hulp nodig bij het vinden van een passende vacature?</span>
-            <a class="button primary dark open-helper">Help mij!</a>
-        </div>
-
-        <div class="job">
-            <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_infra.svg" class="icon">
-            <div class="job-details">
-                <h3>Linux Engineer Consultant</h3>
-                <div class="tags">
-                    <div class="tag infra">Kubernetes</div>
-                    <div class="tag dev">Python</div>
-                    <div class="tag dev">Ruby</div>
-                    <div class="tag dev">Erlang</div>
-                </div>
-                <div class="location">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/map-pin.svg">
-                    Amsterdam
-                </div>
-            </div>
-        </div>
-
-        <div class="job">
-            <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_agile.svg" class="icon">
-            <div class="job-details">
-                <h3>Product Owner Noun</h3>
-                <div class="tags">
-                    <div class="tag infra">Scrum</div>
-                    <div class="tag">Detachering</div>
-                </div>
-                <div class="location">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/map-pin.svg">
-                    Amsterdam
-                </div>
-            </div>
-        </div>
-
-        <a href="/vacature">
-            <div class="job">
-                <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/icon_design.svg" class="icon">
-                <div class="job-details">
-                    <h3>Senior UX/UI Designer</h3>
-                    <div class="tags">
-                        <div class="tag design">UX</div>
-                        <div class="tag design">UI</div>
-                        <div class="tag design">Workshops</div>
-                        <div class="tag">Agency</div>
-                    </div>
-                    <div class="location">
-                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/map-pin.svg">
-                        Amsterdam
-                    </div>
-                </div>
-            </div>
-        </a>
-
-        <div class="job-helper large">
-            <div>
-                <h3>Geen passende vacature kunnen vinden?</h3>
-                <a class="button primary dark open-helper">Help mij met zoeken!</a>
-            </div>
+        <div class="container" id="job">
+            <div id="loader"><img src="<?php bloginfo('template_directory'); ?>/assets/images/loader.svg"></div>
+            <div id="jobs"></div>
         </div>
     </section>
 
     <script type="text/javascript">
+        const dir = "<?php bloginfo('template_directory'); ?>";
+        let jobs;
+        let filter = {category: null, param: null, location: null};
+
         jQuery(document).ready(function () {
-            jQuery('.page-footer-wrapper').css('bottom', '56px');
+            const data = { action: 'getJobs' };
+            const category = getUrlParameter('category');
+
+            jQuery.ajax({
+                type: 'POST',
+                url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
+                dataType: 'json',
+                data: data,
+                beforeSend: function() {
+                    jQuery('#loader').show();
+                },
+                complete: function(){
+                    jQuery('#loader').hide();
+                },
+                success: function(response){
+                    jobs = response;
+                    if(category) {
+                        filter.category = category;
+                        generateList(filter);
+                    } else {
+                        generateList({});
+                    }
+                },
+            });
         });
+
+        function createFilter(type) {
+            const category = jQuery('#filterCategory').val();
+            const location = jQuery('#filterLocation').val();
+
+            switch(type) {
+                case 'category':
+                    filter.category = category !== "all" ? category : null;
+                    break;
+
+                case 'location':
+                    filter.location = location !== "all" ? location : null;
+                    break;
+            }
+
+            generateList(filter);
+        }
+
+        function generateList(filter) {
+            let arr = [];
+
+            jQuery("#jobs").empty();
+
+            jobs.forEach(function (job, index) {
+                let hasCategory = false;
+                let hasLocation = false;
+
+                if(filter.category) {
+                    Object.values(job.categories.data).map(category => {
+                        if (~category.name.indexOf(filter.category)) {
+                            hasCategory = true;
+                        }
+                    });
+                } else {
+                    hasCategory = true;
+                }
+
+                if(filter.location) {
+                    if(job.address.address1) {
+                        if (~job.address.address1.indexOf(filter.location)) {
+                            hasLocation = true;
+                        }
+                    }
+                } else {
+                    hasLocation = true;
+                }
+
+                if (hasCategory && hasLocation) {
+                    arr.push(job);
+                }
+            });
+
+            if(arr.length > 0) {
+                jQuery.each(arr, function (index, job) {
+                    const category = getCategory(job);
+                    const tags = generateTags(job, 6);
+                    const location = locationComponent(job);
+
+                    const jobComponent = '<a href="/vacature?id=' + job.id + '"><div class="job">' +
+                        '<img src="' + dir + '/assets/images/icons/icon_' + category + '.svg" class="icon">' +
+                        '<div class="job-details">' +
+                        '<h3>' + job.title + '</h3>' +
+                        '<div class="tags">' + tags + '</div>' +
+                        location +
+                        '</div></div></a>';
+
+                    jQuery("#jobs").append(jobComponent);
+                });
+            } else {
+                jQuery("#jobs").append("<h3>Er zijn geen vacatures gevonden.</h3>")
+            }
+        }
+
+        function getCategory(job) {
+            const jobTypes = ['design', 'dev', 'agile', 'infra', 'support'];
+            const catName = job.categories.total > 0 ? job['categories']['data'][0]['name'] : '';
+
+            let category = '';
+
+            jQuery.each( jobTypes, function( index, jobType ) {
+                if (catName.toLowerCase().indexOf(jobType) >= 0) {
+                    category = jobType;
+                }
+            });
+
+            if(category === '') { category = 'misc'; }
+
+            return category;
+        }
+
+        function generateTags(job, maxLength) {
+            let tags = "";
+            let total = 0;
+
+            jQuery.each( job.skills.data, function( index, skill ) {
+                if(total > maxLength-1) { return false; }
+
+                tags += '<div class="tag">'+ skill.name +'</div>';
+                total++;
+            });
+
+            return tags;
+        }
+
+        function locationComponent(job) {
+            const address = job.address.address1;
+            const locationComponent = '<div class="location">' +
+                '<img src="'+ dir +'/assets/images/icons/map-pin.svg"> '+ address +
+                '</div>';
+
+            if(address) {
+                return locationComponent;
+            }
+
+            return "";
+        }
+
+        function getUrlParameter(sParam) {
+            let sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
     </script>
 
 <?php get_footer(); ?>
