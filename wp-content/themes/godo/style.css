@@ -3,7 +3,7 @@ Theme Name: GoDo
 Author: Menno van Voorst
 Author URI: https://godo.nl
 Description: Theme for an Amsterdam recruitment agency GoDo.
-Version: 1.0
+Version: 1.1
 */
 
 /*Fonts*/
@@ -37,6 +37,7 @@ body {
     font-size: 14px;
     color: #333333;
     overflow-x: hidden;
+    overscroll-behavior: none;
 }
 
 body.modal-open {
@@ -93,10 +94,17 @@ p {
     margin-bottom: -5px;
 }
 
-.block.image.clients img {
+.block.image.clients .client {
     width: 60%;
+    margin: 32px 0;
+    display: flex;
+    align-items: center;
+}
+
+.block.image.clients .client img {
+    max-width: 100%;
+    max-height: 100%;
     box-shadow: none;
-    margin: 12px 0;
 }
 
 .block.image .block-content {
@@ -117,8 +125,15 @@ p {
     display: flex;
 }
 
-.block .block-header img {
+.block .block-header .image {
     width: 140px;
+    height: 140px;
+    margin-bottom: 0;
+}
+
+.block .block-header .image img {
+    width: 100%;
+    height: 100%;
     margin-bottom: 0;
 }
 
@@ -147,7 +162,6 @@ p {
     flex-direction: column;
     justify-content: space-around;
     padding-left: 32px;
-    width: 100%;
 }
 
 .block.traits {
@@ -329,6 +343,19 @@ section.page-section.map .block iframe {
     background: #f4f4f4;
 }
 
+.page-footer-wrapper .page-footer .lower-bar {
+    background: #eee;
+    color: #333;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.page-footer-wrapper .page-footer .lower-bar a {
+    color: inherit;
+}
+
+
 .page-footer-wrapper .page-footer .container {
     justify-content: space-between;
     padding: 0 8px;
@@ -375,6 +402,11 @@ section.page-section.map .block iframe {
 
 .page-footer-wrapper .page-footer ul.menu li a:after {
     content: " >";
+}
+
+
+form.language-picker {
+    margin-bottom: 18px;
 }
 
 /*Buttons*/
@@ -438,7 +470,7 @@ section.page-section.map .block iframe {
 .popup-wrapper {
     position: fixed;
     width: 100vw;
-    height: 100vh;
+    min-height: 100%;
     top: 0;
     left: 0;
     background: rgba(51, 51, 51, 0.7);
@@ -475,10 +507,6 @@ section.page-section.map .block iframe {
     width: 90%;
     padding: 0;
     margin: 0 auto;
-}
-
-#helper.popup-wrapper, #helper.popup-wrapper .popup-header {
-    background: #ffffff;
 }
 
 .popup-wrapper .popup-header {
@@ -567,6 +595,7 @@ section.page-section.map .block iframe {
     border: 0;
     outline: 0;
     background: #ffffff;
+    -webkit-appearance: none;
 }
 
 .popup-wrapper input.error, .popup-wrapper textarea.error {
@@ -664,7 +693,42 @@ section.page-section.map .block iframe {
 }
 
 .popup-wrapper form .drop-zone.is-dragover {
-    background-color: #333333;
+    border: 1px dashed #333;
+}
+
+.popup-wrapper form #file-list {
+    width: 100%
+}
+
+.popup-wrapper form #file-list .tag {
+    display: flex;
+    color: #666666;
+    background: #DDDDDD;
+    padding: 4px 10px;
+    border-radius: 5px;
+    margin-top: 4px;
+    margin-right: 6px;
+    align-items: center;
+}
+
+.popup-wrapper form #file-list .tag .icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.popup-wrapper form #file-list .tag .icon img {
+    width: 50%;
+    height: auto;
+
 }
 
 .popup-wrapper form p {
@@ -828,7 +892,7 @@ section.page-section.hero-wrapper .hero #filter {
     margin: 0 auto;
 }
 
-section.page-section.hero-wrapper .hero #filter select {
+select {
     width: 100%;
     flex: 0 0 48%;
     height: 42px;
@@ -857,6 +921,16 @@ section.page-section.hero-wrapper .hero #filter select {
 
 select::-ms-expand {
     display: none;
+}
+
+#alarm .filter {
+    width: 100%;
+    justify-content: space-between;
+    margin: 24px 0;
+}
+
+#alarm .filter select {
+    flex: 0 0 45%;
 }
 
 section.page-section.hero-wrapper.alarm {
@@ -929,6 +1003,14 @@ section.page-section.hero-wrapper.job-header .hero-title .button {
     margin-right: 32px;
 }
 
+section.page-section.hero-wrapper.job-header .hero {
+    display: none;
+}
+
+section.page-section.hero-wrapper.job-header .hero.mobile {
+    display: block;
+}
+
 section.page-section.team .block-header {
     z-index: 2;
 }
@@ -974,10 +1056,6 @@ section.job-section .container{
 #loader {
     text-align: center;
     margin-top: 32px;
-}
-
-#job {
-    padding-top: 64px;
 }
 
 .job {
@@ -1061,8 +1139,9 @@ section.job-section .job-helper {
     margin: 16px 6px;
     padding: 21px 16px;
     align-items: center;
-    background: #f4f4f4 url('assets/images/icons/drowning_man-white.svg') no-repeat left center;
+    background: #f4f4f4 url('assets/images/icons/drowning_man-white.svg') no-repeat right center;
     background-size: 32%;
+    justify-content: space-between;
 }
 
 section.job-section .job-helper span {
@@ -1200,6 +1279,11 @@ section.job-section .job-helper div h3 {
     padding: 6px 12px;
 }
 
+.bar-wrapper.alarm .container {
+    align-items: center;
+    justify-content: space-between;
+}
+
 /* Apply screen */
 section.apply-section {
     padding: 8px 16px;
@@ -1231,10 +1315,16 @@ section.apply-section .location img {
     margin-bottom: 32px;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 48px;
+    overflow-y: auto;
+}
+
+#helper .chat .entry {
+    flex: 0 0 100%;
 }
 
 #helperForm .chat .question {
-    flex: 0 0 80%;
+    width: 80%;
     border: 3px solid #333333;
     background: #fafafa;
     padding: 8px 16px;
@@ -1266,12 +1356,13 @@ section.apply-section .location img {
 }
 
 #helperForm .chat .answer {
-    display: inline-block;
+    max-width: 80%;
+    display: block;
     border: 3px solid #333333;
     background: #fafafa;
     padding: 8px 16px;
     border-radius: 10px 10px 0 10px;
-    margin-left: auto;
+    float: right;
 
     font-size: 13px;
     line-height: 16px;
@@ -1289,17 +1380,151 @@ section.apply-section .location img {
 
 #helperForm .response-field {
     padding: 16px;
-    background: #fafafa;
+    background: #f4f4f4;
     justify-content: space-between;
     align-items: center;
 }
 
 #helperForm .response-field a.button {
-    margin: 8px 0;
+    align-self: center;
 }
 
 #helperForm .response-field input[type="text"] {
     width: 100%;
+}
+
+#helperForm .response-field label {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    flex: 0 0 50%;
+    font-size: 1em;
+}
+
+#helperForm .response-field input[type="checkbox"] {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+}
+
+#helperForm .response-field input[type="checkbox"]:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    background-color:#fff;
+}
+
+#helperForm .response-field input[type="checkbox"]:checked:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    background-color:#666;
+}
+
+#helperForm .response-field input[type="checkbox"]:checked:after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2px;
+    left: 6px;
+}
+
+#helperForm .response-field .categoryTabs {
+    width: 100%;
+}
+
+#helperForm .response-field .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+
+#helperForm .response-field .tabcontent {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#helperForm .response-field .tabGroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#helperForm .response-field .tabmenu {
+    background: #FFFFFF;
+    outline: 0;
+    border: 0;
+    flex: 0 0 45%;
+    padding: 8px 0;
+    margin-right: 12px;
+    margin-top: 8px;
+    cursor: pointer;
+    font-family: 'Suez One', serif;
+}
+
+#helperForm .response-field .tabmenu.active {
+    background: #FFE610;
+}
+
+.autocomplete {
+    position: relative;
+    width: 100%;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    max-height: 480px;
+    overflow-y: auto;
+}
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+
+#helperForm .tags .tag {
+    vertical-align: middle;
+}
+
+#helperForm .tags .tag .icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 #about .container.row {
@@ -1309,6 +1534,21 @@ section.apply-section .location img {
 #about .container.row .block {
     flex: 0 0 100%;
 }
+
+/*404 page*/
+#not-found .container.row .col {
+    flex: 0 0 100%;
+}
+
+#not-found .container.row .col.image {
+    text-align: center;
+    margin: 32px 0;
+}
+
+#not-found .container.row .col.image img {
+    width: 75%;
+}
+
 
 /*Tablet*/
 @media (min-width: 768px) {
@@ -1326,6 +1566,14 @@ section.apply-section .location img {
     section.page-section.hero-wrapper p.hero-subtitle {
         width: 65%;
         text-align: left;
+    }
+
+    section.page-section.hero-wrapper.job-header .hero {
+        display: block;
+    }
+
+    section.page-section.hero-wrapper.job-header .hero.mobile {
+        display: none;
     }
 
     #recruiter .content  {
@@ -1349,7 +1597,7 @@ section.apply-section .location img {
         text-align: center;
     }
 
-    .block.image.clients img {
+    .block.image.clients .client {
         width: 35%;
         margin: 25px;
     }
@@ -1364,6 +1612,34 @@ section.apply-section .location img {
 
     #about .container.row .block.image {
         flex: 0 0 60%;
+    }
+
+    section.job-section .job-helper div h3 {
+        margin: 0 0 15px 0;
+    }
+
+    section.job-section .job-helper {
+        padding: 32px 16px;
+        background-position: left 20px center;
+        background-size: 20%;
+    }
+
+    section.job-section .job-helper.large {
+        padding: 22px 16px 27px 16px;
+        background-size: 24%;
+        background-position: right 20px center;
+    }
+
+    #helperForm .response-field .tabmenu {
+        flex: 1;
+    }
+
+    #helperForm .response-field label {
+        flex: 0 0 30%;
+    }
+
+    #not-found .container.row .col {
+        flex: 1;
     }
 }
 
@@ -1410,10 +1686,6 @@ section.apply-section .location img {
         margin-top: 50px;
     }
 
-    .block .block-header img {
-        width: 150px;
-    }
-
     #company .block.image img {
         width: calc(50% - 10px);
     }
@@ -1437,7 +1709,7 @@ section.apply-section .location img {
         width: 45%;
     }
 
-    .block.image.clients img {
+    .block.image.clients .client {
         width: 30%;
         margin: 25px;
     }
@@ -1475,7 +1747,7 @@ section.apply-section .location img {
     }
 
     .slider.job-categories {
-       padding: 50px 0;
+        padding: 50px 0;
         height: 250px;
     }
 
@@ -1559,6 +1831,20 @@ section.apply-section .location img {
     .share-dropdown ul.shareButtons li a {
         width: 180px;
     }
+
+    #job {
+        padding-top: 64px;
+    }
+
+    section.job-section .job-helper.large {
+        padding: 32px 32px 37px 32px;
+        background-size: 20%;
+        background-position: right 32px center;
+    }
+
+    section.job-section .job-helper {
+        padding: 40px 16px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -1570,12 +1856,22 @@ section.apply-section .location img {
         padding: 64px 16px;
     }
 
-    .block.image.clients img {
+    .block.image.clients .client {
         width: 20%;
         margin: 45px;
     }
 
     .bar-wrapper .container {
         width: 1120px;
+    }
+
+    section.job-section .job-helper div h3 {
+        margin: 0 0 20px 0;
+    }
+
+    section.job-section .job-helper.large {
+        padding: 32px 60px 37px 60px;
+        background-size: 17%;
+        background-position: right 60px center;
     }
 }

@@ -7,9 +7,9 @@
 <?php get_header(); ?>
 
     <section class="page-section hero-wrapper">
-        <div class="hero" style="background: #f4f4f4 url('<?php bloginfo('template_directory'); ?>/assets/images/heros/hero_about.jpg') no-repeat center center; background-size: cover;"></div>
+        <div class="hero" style="background: #f4f4f4 url('<?php echo get_the_post_thumbnail_url(); ?>') no-repeat center center; background-size: cover;"></div>
         <div class="container row">
-            <div class="hero-title"><h1>Recruitment is een ambacht</h1></div>
+            <div class="hero-title"><h1><?php echo $lang['about']['banner']['title']; ?></h1></div>
         </div>
     </section>
 
@@ -17,13 +17,14 @@
         <div class="container row">
             <div class="block intro row">
                 <div>
-                    <p>Wij geloven dat de juiste persoon op de juiste plaats bedrijven sneller laat groeien. We gaan voor een lange termijn relatie met onze opdrachtgevers en onze kandidaten. Daarom nemen we de tijd om de juiste match te maken. Zonder duwen of trekken. Daarbij kijken we niet alleen naar de bewezen skills van onze kandidaten, maar ook naar hun groeipotentieel. Recruitment is een ambacht. GoDo it.</p>
-                    <a href="/contact" class="button secondary dark">Neem contact met ons op</a>
+                    <p><?php echo $lang['about']['banner']['body']; ?></p>
+                    <a href="<?php echo $lang['about']['banner']['cta_url']; ?>" class="button secondary dark"><?php echo $lang['about']['banner']['cta']; ?></a>
                 </div>
             </div>
 
             <div class="block image" style="margin-top: 32px;">
-                <img src="<?php bloginfo('template_directory'); ?>/assets/images/temp/kerstfeest2019_2.jpg"/>
+                <?php $teamImage = get_post_meta(get_queried_object_id(), 'team',true); ?>
+                <img src="<?php echo wp_get_attachment_image_src($teamImage, 'full')[0]; ?>"/>
             </div>
         </div>
     </section>
@@ -45,7 +46,7 @@
 
                 <div class="block image">
                     <div class="block-header">
-                        <img src="<?php the_post_thumbnail_url(); ?>"/>
+                        <div class="image"><img src="<?php the_post_thumbnail_url(); ?>"/></div>
                         <h2><?php the_title() ?> <a href="<?php echo $linkedin ?>" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/assets/images/icons/linkedin-white.svg" class="icon"/></a></h2>
                     </div>
 
@@ -62,8 +63,21 @@
 
     <section class="page-section gray">
         <div class="container">
+            <div class="block intro" style="text-align: center;">
+                <?php $makerstreetImage = get_post_meta(get_queried_object_id(), 'makerstreet',true); ?>
+                <img src="<?php echo wp_get_attachment_image_src($makerstreetImage, 'full')[0]; ?>" style="margin-bottom: 16px;"/>
+                <div class="row">
+                    <p><?php echo $lang['about']['makerstreet']['body']; ?></p>
+                    <a href="<?php echo $lang['about']['makerstreet']['cta_url']; ?>" target="_blank" class="button secondary dark" style="margin: 0 auto;"><?php echo $lang['about']['makerstreet']['cta']; ?></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container">
             <div class="block intro image clients full row">
-                <h2>Wij werken oa. voor</h2>
+                <h2><?php echo $lang['about']['klanten']['title']; ?></h2>
                 <?php
 
                 $args = array(
@@ -73,11 +87,11 @@
                 $your_loop = new WP_Query( $args );
 
                 if ( $your_loop->have_posts() ) : while ( $your_loop->have_posts() ) : $your_loop->the_post(); ?>
-                    <img src="<?php the_post_thumbnail_url(); ?>" />
+                    <div class="client"><img src="<?php the_post_thumbnail_url(); ?>" /></div>
                 <?php endwhile; endif; wp_reset_postdata(); ?>
             </div>
 
-            <div style="text-align: center;"><a href="/contact" class="button primary dark">Ik zoek digitale professionals</a></div>
+            <div style="text-align: center;"><a href="<?php echo $lang['about']['klanten']['cta_url']; ?>" class="button primary dark"><?php echo $lang['about']['klanten']['cta']; ?></a></div>
         </div>
     </section>
 

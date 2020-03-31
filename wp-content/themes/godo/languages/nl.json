@@ -1,0 +1,132 @@
+{
+  "frontpage": {
+    "banner": {
+      "title": "Work. Set. Match",
+      "subtitle": "We helpen mensen en bedrijven groeien door het maken van de juiste match.",
+      "cta_1": "Meer over GoDo",
+      "cta_1_url": "/over-godo",
+      "cta_2": "Neem contact op",
+      "cta_2_url": "/contact"
+    },
+    "vacatures": {
+      "title": "Vind jouw volgende stap",
+      "body": "We zetten ons netwerk in om je te matchen met een job die past bij jouw volgende stap. We willen veel van je weten, zodat we je op het goede moment kunnen introduceren bij de mooiste bedrijven; van veel belovende start-ups, bekende corporaties tot de agencies van o.a. MakerStreet. Want van een goede match wordt iedereen beter.",
+      "cta": "Nog meer vacatures",
+      "cta_url": "/vacatures"
+    },
+    "bedrijven": {
+      "title": "We zijn matchmakers die nauw samenwerken met onze opdrachtgevers.",
+      "body": "Door actief contact te houden met ons grote netwerk vinden we snel de juiste kandidaat voor je. Mensen met ervaring die toe zijn aan een volgende stap. Aan stalken doen we niet, wel aan hard werken en doorzetten.",
+      "cta": "Neem contact op",
+      "cta_url": "/contact"
+    }
+  },
+  "about": {
+    "banner": {
+      "title": "Recruitment is een ambacht",
+      "body": "Wij geloven dat de juiste persoon op de juiste plaats bedrijven sneller laat groeien. We gaan voor een lange termijn relatie met onze opdrachtgevers en onze kandidaten. Daarom nemen we de tijd om de juiste match te maken. Zonder duwen of trekken. Daarbij kijken we niet alleen naar de bewezen skills van onze kandidaten, maar ook naar hun groeipotentieel. Recruitment is een ambacht. GoDo it.",
+      "cta": "Neem contact met ons op",
+      "cta_url": "/contact"
+    },
+    "makerstreet": {
+      "body": "GoDo is onderdeel van MakerStreet. Een Amsterdams collectief van de allerbeste agencies. Wij geloven in specialisme. Uitblinken in je eigen vakgebied. Daarom zijn we geen full-service agency. Maar een netwerk van specialistische bureau. Full-specialism noemen we dat.",
+      "cta": "Meer over Makerstreet",
+      "cta_url": "https://www.makerstreet.nl/"
+    },
+    "klanten": {
+      "title": "Wij werken oa. voor",
+      "cta": "Ik zoek digitale professionals",
+      "cta_url": "/contact"
+    }
+  },
+  "contact": {
+    "banner": {
+      "title": "Kopje koffie?",
+      "body": "Wij zijn altijd bereikbaar. Nou ja, wij houden ons enigszins aan kantooruren. Maar je mag het altijd proberen. Moet je niet schrikken als wij gewoon in de sportschool opnemen. Of terugbellen als je in de kroeg staat.",
+      "cta": "Stuur ons een berichtje"
+    },
+    "address": {
+      "street": "Fred. Roeskestraat 99",
+      "city": "1076 EE Amsterdam",
+      "maps": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9750.476230375674!2d4.8624824!3d52.3410566!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xcea46d14707c53cd!2sGoDo!5e0!3m2!1snl!2snl!4v1582795439527!5m2!1snl!2snl"
+    },
+    "form": {
+      "title": "Let's get in touch",
+      "naam": "Naam",
+      "email": "Email",
+      "message": "Hoe kunnen wij je helpen?",
+      "send": "Versturen"
+    }
+  },
+  "vacatures": {
+    "banner": {
+      "title": "Onze vacatures",
+      "functies": "Alle functies",
+      "locaties": "Alle locaties"
+    },
+    "helper": {
+      "title": "Geen passende vacature kunnen vinden?",
+      "cta": "Help mij met zoeken!"
+    },
+    "alarm": {
+      "title": "Geen vacature meer missen?",
+      "cta": "Alarm instellen"
+    },
+    "vacature" : {
+      "skills": "Wat moet je kunnen",
+      "benefits": "Dit krijg je er voor terug",
+      "vragen": "Nog vragen?",
+      "whatsapp": "Stuur mij een appje",
+      "solliciteren": "Solliciteren",
+      "solliciterenBalk": "Ik wil deze baan!",
+      "delen": "Delen",
+      "delenBalk": "Deze vacature delen"
+    },
+    "solliciteren" : {
+      "voornaam": "Voornaam (verplicht)",
+      "achternaam": "Achternaam (verplicht)",
+      "email": "Email (verplicht)",
+      "telefoon": "Telefoon (verplicht)",
+      "cv": "Sleep je cv en/of portfolio bestanden hierheen",
+      "of": "of",
+      "files": "Blader door je bestanden",
+      "enof": "en/of",
+      "website": "Link naar je cv/portfolio/LinkedIn",
+      "motivation": "Korte motivatie of toelichting",
+      "privacy": "Krijgen we je toestemming om je gegevens te bewaren? We gaan er natuurlijk goed mee om. Weten hoe? Lees het in ons",
+      "apply": "Sollicitatie versturen"
+    }
+  },
+  "misc": {
+    "alarm": {
+      "unsubscribe": "Weet je zeker dat je geen nieuwe vacatures meer wilt ontvangen in je inbox?",
+      "unsubscribeButton": "Ja, schrijf mij uit",
+      "unsubscribeSuccess": "Je bent succesvol uitgeschreven.",
+      "unsubscribeFailed": "De token en/of emailadres is incorrect."
+    },
+    "404": {
+      "title": "404 - Pagina niet gevonden",
+      "body": "Wij kunnen jou met veel matchen… maar helaas niet met deze pagina. Laten we het opnieuw proberen.",
+      "redirect": "Wat kunnen we doen?",
+      "homepageURL": "Met een schone lei beginnen: Ga naar de homepage",
+      "vacatureURL": "Deze tegenslag achter ons laten: Bekijk gelijk de vacatures",
+      "contactURL": "Samen erover praten: Neem contact met ons op"
+    },
+    "301": {
+      "title": "Vacature niet gevonden",
+      "body": "Deze vacature is inmiddels ingevuld. Niet getreurd! We hebben nog een hele hoop toffe jobs voor je!",
+      "redirect": "Wat kunnen we doen?",
+      "homepageURL": "Met een schone lei beginnen: Ga naar de homepage",
+      "vacatureURL": "Deze tegenslag achter ons laten: Bekijk gelijk de vacatures",
+      "contactURL": "Samen erover praten: Neem contact met ons op"
+    }
+  },
+  "footer": {
+    "taal": {
+      "select": "Selecteer je taal",
+      "nl": "Nederlands",
+      "en": "English"
+    },
+    "bottom": "GoDo is onderdeel van"
+  }
+}

@@ -1,0 +1,48 @@
+{"frontpage":{"banner":{"title":"Work. Set. Match.","subtitle":"We help people and businesses grow by finding the perfect match","cta_1":"About GoDo","cta_1_url":"\/over-godo","cta_2":"Contact us","cta_2_url":"\/contact"},"vacatures":{"title":"Find your next step","body":"We use our network to match you with a job that suits your next step. We want to know a lot about you, so that we can introduce you to the most beautiful companies at the right time; from promising start-ups, well-known corporations to the agencies of MakerStreet, among others. Because a good match makes everyone better","cta":"Even more jobs","cta_url":"\/vacatures"},"bedrijven":{"title":"We are matchmakers that work closely with our clients.","body":"By actively keeping in touch with our large network, we quickly find the right candidate for you. People with experience who are ready for the next step. We don\\'t do stalking, but we do hard work and perseverance.","cta":"Contact us","cta_url":"\/contact"}},"about":{"banner":{"title":"Recruitment is a craft","body":"We believe that the right person in the right place makes businesses grow faster. We aim for a long-term relationship with our clients and our candidates. That is why we take the time to make the right match. Without pushing or pulling. We not only look at the proven skills of our candidates, but also at their growth potential. Recruitment is a craft. GoDo it.","cta":"Contact us","cta_url":"\/contact"},"makerstreet":{"body":"GoDo is part of MakerStreet. An Amsterdam collective of the very best agencies. We believe in specialism. To excel in your own field. That is why we are not a full-service agency. But a network of specialist agency. We call this full-specialism.","cta":"More about Makerstreet","cta_url":"https:\/\/www.makerstreet.nl\/"},"klanten":{"title":"We work for","cta":"I am looking for digital professionals","cta_url":"\/contact"}},"contact":{"banner":{"title":"Cup of coffee?","body":"We are always available. Well, we stick to office hours to some extent. But you can always try. Don't be alarmed if we just work out in the gym. Or call back when you are in the pub.","cta":"Send us a message"},"address":{"street":"Fred. Roeskestraat 99","city":"1076 EE Amsterdam","maps":"https:\/\/www.google.com\/maps\/embed?pb=!1m14!1m8!1m3!1d9750.476230375674!2d4.8624824!3d52.3410566!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xcea46d14707c53cd!2sGoDo!5e0!3m2!1snl!2snl!4v1582795439527!5m2!1snl!2snl"},
+  "form": {
+    "title": "Let's get in touch",
+    "naam": "Name",
+    "email": "Email",
+    "message": "How can we help you?",
+    "send": "Send"
+  }},"vacatures":{"banner":{"title":"Our jobs","functies":"All jobs","locaties":"All locations"},"helper":{"title":"Can't find a suitable job?","cta":"Help me search!"},"alarm":{"title":"Don't want to miss a job?","cta":"Set alarm"},
+  "vacature" : {
+    "skills": "Your skills",
+    "benefits": "The benefits",
+    "vragen": "Any questions?",
+    "whatsapp": "Message me on Whatsapp",
+    "solliciteren": "Apply",
+    "solliciterenBalk": "I want this job!",
+    "delen": "Share",
+    "delenBalk": "Share this job"
+  },
+  "solliciteren" : {
+    "voornaam": "First name (required)",
+    "achternaam": "Last name (required)",
+    "email": "Email (required)",
+    "telefoon": "Phone (required)",
+    "cv": "Drop your resume and/or portfolio files here",
+    "of": "or",
+    "files": "Browse your files",
+    "enof": "and/or",
+    "website": "Link to your resume/portfolio/LinkedIn",
+    "motivation": "Short motivation or message",
+    "privacy": "Do we have your permission to save your data? We'll take good care of it ofcourse. Want to know how? See our",
+    "apply": "Send application"
+  }},"footer":{"taal":{"select":"Select your language","nl":"Nederlands","en":"English"},"bottom":"GoDo is part of"},
+  "misc": {
+    "alarm": {
+      "unsubscribe": "Are you sure you no longer want to receive new vacancies in your inbox?",
+      "unsubscribeButton": "Yes, unsuscribe me",
+      "unsubscribeSuccess": "You're successfully unsubscribed.",
+      "unsubscribeFailed": "The token and/or email is incorrect."
+    },
+    "404": {
+      "title": "404 - Page not found",
+      "body": "We can match you with many ... but unfortunately not with this page. Let's try it again.",
+      "redirect": "What can we do?",
+      "homepageURL": "Start with a clean slate: Go to the homepage",
+      "vacatureURL": "Leave this setback behind us: Take a look at the vacancies",
+      "contactURL": "Let's talk about it: Contact us"
+    }
+  }}

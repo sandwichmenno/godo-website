@@ -81,6 +81,16 @@ class BullhornAPI {
         return $submission;
     }
 
+    public function createLead($lead) {
+        if(TRUE !== $this->oAuth()) :
+            return FALSE;
+        endif;
+
+        $submission = $this->comm('entity/Lead?%s', 'PUT', $lead);
+
+        return $submission;
+    }
+
     public function createCandidate($person, $resume_files) {
         $candidate = $this->comm('entity/Candidate?%s', 'PUT', $person);
         $candidate_id = $candidate['changedEntityId'];
@@ -182,9 +192,23 @@ class BullhornAPI {
             return FALSE;
         endif;
 
-        $query = 'fields=id,title,address,categories,skills&where=isDeleted=false+AND+isPublic=1';
+        $query = 'fields=id,title,address,categories,skills&where=isDeleted=false+AND+isPublic=1&count=5000';
 
         if(FALSE === $this->comm(sprintf('query/JobOrder?%s', $query), 'GET')) :
+            return FALSE;
+        endif;
+
+        return $this->comm_response['data'];
+    }
+
+    public function skillsFetchAll() {
+        if(TRUE !== $this->oAuth()) :
+            return FALSE;
+        endif;
+
+        $query = 'where=enabled=true&fields=id,name,enabled&start=0&count=500';
+
+        if(FALSE === $this->comm(sprintf('/query/Skill?%s', $query), 'GET')) :
             return FALSE;
         endif;
 

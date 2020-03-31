@@ -20,9 +20,36 @@ function theme_options_page() {
             <?php $filters = get_option( 'theme_settings' ); ?>
             <table class="form-table">
                 <tbody>
+                <tr><td><h3>Filters</h3></td></tr>
                 <tr>
-                    <th scope="row"><?php _e( 'Functie titels (seperated by enter)' ); ?></th>
-                    <td><textarea id="theme_settings[filters]" type="text" cols="50" rows="10" name="theme_settings[filters]" ><?php esc_attr_e( $filters['filters'] ); ?></textarea></td>
+                    <th scope="row"><?php _e( 'Functies (seperated by enter)' ); ?></th>
+                    <td><textarea id="theme_settings[filtersJob]" type="text" cols="50" rows="10" name="theme_settings[filtersJob]" ><?php esc_attr_e( $filters['filtersJob'] ); ?></textarea></td>
+                </tr>
+
+                <tr>
+                    <th scope="row"><?php _e( 'Locaties (seperated by enter)' ); ?></th>
+                    <td><textarea id="theme_settings[filtersLocation]" type="text" cols="50" rows="10" name="theme_settings[filtersLocation]" ><?php esc_attr_e( $filters['filtersLocation'] ); ?></textarea></td>
+                </tr>
+
+                <tr><td><h3>Helper functies</h3></td></tr>
+                <tr>
+                    <th scope="row">Agile (seperated by enter)</th>
+                    <td><textarea id="theme_settings[helperAgile]" type="text" cols="50" rows="10" name="theme_settings[helperAgile]" ><?php esc_attr_e( $filters['helperAgile'] ); ?></textarea></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Design (seperated by enter)</th>
+                    <td><textarea id="theme_settings[helperDesign]" type="text" cols="50" rows="10" name="theme_settings[helperDesign]" ><?php esc_attr_e( $filters['helperDesign'] ); ?></textarea></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Development (seperated by enter)</th>
+                    <td><textarea id="theme_settings[helperDev]" type="text" cols="50" rows="10" name="theme_settings[helperDev]" ><?php esc_attr_e( $filters['helperDev'] ); ?></textarea></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Infrastructuur (seperated by enter)</th>
+                    <td><textarea id="theme_settings[helperInfra]" type="text" cols="50" rows="10" name="theme_settings[helperInfra]" ><?php esc_attr_e( $filters['helperInfra'] ); ?></textarea></td>
                 </tr>
                 </tbody>
             </table>

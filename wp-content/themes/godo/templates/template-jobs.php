@@ -5,41 +5,38 @@
 ?>
 
 <?php get_header(); ?>
+<?php get_template_part( 'templates/parts/popup', 'alarm' ); ?>
+<?php get_template_part( 'templates/parts/popup', 'helper' ); ?>
 <?php
 $theme_settings = get_option( 'theme_settings' );
-$categoryFilter = [
-    "Front-end Developer",
-    "Back-end Developer",
-    "Designer",
-    "Content",
-    "Communicatie",
-    "User Research",
-    "Product Owner",
-    "Scrum Master",
-    "Recruitment",
-    "Data en Growth",
-    "Financial Controller",
-    "IT Support Engineer",
-    "Linux Engineer"];
-$locationFilter = ["Amsterdam", "Rotterdam", "Amersfoort", "Utrecht"];
+
+$categoryFilter = preg_split('/\r\n|\r|\n/', $theme_settings['filtersJob']);
+$locationFilter = preg_split('/\r\n|\r|\n/', $theme_settings['filtersLocation']);
 ?>
+
+    <div class="bar-wrapper row alarm">
+        <div class="container row">
+            <span><?php echo $lang['vacatures']['alarm']['title']; ?></span>
+            <a class="button primary dark open-alarm"><?php echo $lang['vacatures']['alarm']['cta']; ?></a>
+        </div>
+    </div>
 
     <section class="page-section hero-wrapper">
         <div class="hero no-image" style="background: #f4f4f4">
             <div class="container">
-                <h1>Onze vacatures</h1>
+                <h1><?php echo $lang['vacatures']['banner']['title']; ?></h1>
                 <form id="filter" class="row">
                     <select id="filterCategory" name="position" onchange="createFilter('category')">
-                        <option value="all" selected>Alle functies</option>
+                        <option value="all" selected><?php echo $lang['vacatures']['banner']['functies']; ?></option>
                         <?php foreach($categoryFilter as $filter) { ?>
                             <option value="<?php echo $filter; ?>"><?php echo $filter; ?></option>
                         <?php } ?>
                     </select>
 
                     <select id="filterLocation" name="location" onchange="createFilter('location')">
-                        <option value="all" selected>Alle locaties</option>
+                        <option value="all" selected><?php echo $lang['vacatures']['banner']['locaties']; ?></option>
                         <?php foreach($locationFilter as $filter) { ?>
-                            <option value="<?php echo $filter; ?>"><?php echo $filter; ?></option>
+                        <option value="<?php echo $filter; ?>"><?php echo preg_replace('/\[(.*?)\]/', "" , $filter); ?></option>
                         <?php } ?>
                     </select>
                 </form>
@@ -51,6 +48,13 @@ $locationFilter = ["Amsterdam", "Rotterdam", "Amersfoort", "Utrecht"];
         <div class="container" id="job">
             <div id="loader"><img src="<?php bloginfo('template_directory'); ?>/assets/images/loader.svg"></div>
             <div id="jobs"></div>
+
+            <div class="job-helper large">
+                <div>
+                    <h3><?php echo $lang['vacatures']['helper']['title']; ?></h3>
+                    <a class="button primary dark open-helper"><?php echo $lang['vacatures']['helper']['cta']; ?></a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -62,6 +66,8 @@ $locationFilter = ["Amsterdam", "Rotterdam", "Amersfoort", "Utrecht"];
         jQuery(document).ready(function () {
             const data = { action: 'getJobs' };
             const category = getUrlParameter('category');
+
+            jQuery('.page-footer-wrapper').css('bottom', '72px');
 
             jQuery.ajax({
                 type: 'POST',
@@ -114,7 +120,7 @@ $locationFilter = ["Amsterdam", "Rotterdam", "Amersfoort", "Utrecht"];
 
                 if(filter.category) {
                     Object.values(job.categories.data).map(category => {
-                        if (~category.name.indexOf(filter.category)) {
+                        if (~category.name.toLowerCase().indexOf(filter.category.toLowerCase())) {
                             hasCategory = true;
                         }
                     });
@@ -124,8 +130,18 @@ $locationFilter = ["Amsterdam", "Rotterdam", "Amersfoort", "Utrecht"];
 
                 if(filter.location) {
                     if(job.address.address1) {
-                        if (~job.address.address1.indexOf(filter.location)) {
-                            hasLocation = true;
+                        const area = filter.location.match(/\[(.*?)\]/)[1];
+
+                        if(area) {
+                            const location = filter.location.replace(/\[(.*?)\]/,'');
+
+                            if(~job.address.address1.toLowerCase().indexOf(area.toLowerCase()) || ~job.address.address1.toLowerCase().indexOf(location.toLowerCase())) {
+                                hasLocation = true;
+                            }
+                        } else {
+                            if (~job.address.address1.toLowerCase().indexOf(filter.location.toLowerCase())) {
+                                hasLocation = true;
+                            }
                         }
                     }
                 } else {
@@ -142,8 +158,9 @@ $locationFilter = ["Amsterdam", "Rotterdam", "Amersfoort", "Utrecht"];
                     const category = getCategory(job);
                     const tags = generateTags(job, 6);
                     const location = locationComponent(job);
+                    const url = generateURL(job);
 
-                    const jobComponent = '<a href="/vacature?id=' + job.id + '"><div class="job">' +
+                    const jobComponent = '<a href="/vacature/'+ url +'"><div class="job">' +
                         '<img src="' + dir + '/assets/images/icons/icon_' + category + '.svg" class="icon">' +
                         '<div class="job-details">' +
                         '<h3>' + job.title + '</h3>' +
@@ -152,6 +169,10 @@ $locationFilter = ["Amsterdam", "Rotterdam", "Amersfoort", "Utrecht"];
                         '</div></div></a>';
 
                     jQuery("#jobs").append(jobComponent);
+
+                    if(index === 3) {
+                        jQuery("#jobs").append(helperComponent());
+                    }
                 });
             } else {
                 jQuery("#jobs").append("<h3>Er zijn geen vacatures gevonden.</h3>")
@@ -167,6 +188,8 @@ $locationFilter = ["Amsterdam", "Rotterdam", "Amersfoort", "Utrecht"];
             jQuery.each( jobTypes, function( index, jobType ) {
                 if (catName.toLowerCase().indexOf(jobType) >= 0) {
                     category = jobType;
+                } else if (catName.toLowerCase().indexOf('scrum') >= 0 || catName.toLowerCase().indexOf('owner') >= 0) {
+                    category = "agile";
                 }
             });
 
@@ -202,6 +225,14 @@ $locationFilter = ["Amsterdam", "Rotterdam", "Amersfoort", "Utrecht"];
             return "";
         }
 
+        function generateURL(job) {
+            let url = job.title;
+            url = url.replace(/\W+(?!$)/g, '-').toLowerCase();
+            url = url.replace(/\W$/, '').toLowerCase();
+
+            return url + '/' + job.id;
+        }
+
         function getUrlParameter(sParam) {
             let sPageURL = window.location.search.substring(1),
                 sURLVariables = sPageURL.split('&'),
@@ -215,7 +246,14 @@ $locationFilter = ["Amsterdam", "Rotterdam", "Amersfoort", "Utrecht"];
                     return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
                 }
             }
-        };
+        }
+
+        function helperComponent() {
+            return "<div class='job-helper row'>" +
+                "<span><?php echo $lang['vacatures']['helper']['title']; ?></span>" +
+                "<a class='button primary dark open-helper'><?php echo $lang['vacatures']['helper']['cta']; ?></a>" +
+                "</div>"
+        }
     </script>
 
 <?php get_footer(); ?>

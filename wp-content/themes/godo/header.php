@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-    <title><?php bloginfo( 'name' ); ?></title>
+    <title><?php bloginfo( 'name' ); ?> <?php echo $pagetitle; ?></title>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <?php if (is_page('vacature')) { ?>
+        <?php global $meta; ?>
+        <meta property="og:title" content="<?php echo $meta['title'] ?>">
+        <meta property="og:description" content="<?php echo $meta['description'] ?>">
+        <meta property="og:url" content="<?php echo $meta['url'] ?>">
+        <meta property="og:image" content="<?php echo $meta['image'] ?>">
+
+
+        <meta property="title" content="<?php echo $meta['title'] ?>">
+        <meta property="description" content="<?php echo $meta['description'] ?>">
+        <meta content="index, follow" name="robots">
+    <?php } ?>
 
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+    <?php
+        global $lang;
+        $lang = getLang();
+        $curlang = isset($_COOKIE["lang"]) ? $_COOKIE["lang"] : "nl";
+    ?>
 
     <div class="page-header-wrapper">
         <header class="page-header">
             <div class="container row">
                 <a href="<?php bloginfo('url') ?>"><img src="<?php bloginfo('template_directory'); ?>/assets/images/logo.svg" class="logo"/></a>
 
-                <div class="mainMenu"><?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?></div>
+                <div class="mainMenu">
+                    <?php
+                    if($curlang === "nl") {
+                        wp_nav_menu( array( 'theme_location' => 'header-menu' ) );
+                    } else {
+                        wp_nav_menu( array( 'theme_location' => 'header-menu-engels' ) );
+                    }
+                    ?>
+                </div>
 
                 <div class="menuToggle">
                     <div class="hamburger hamburger--squeeze">
@@ -29,7 +55,13 @@
     </div>
 
     <div class="menu-overlay-wrapper hidden">
-        <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+        <?php
+            if($curlang === "nl") {
+                wp_nav_menu( array( 'theme_location' => 'header-menu' ) );
+            } else {
+                wp_nav_menu( array( 'theme_location' => 'header-menu-engels' ) );
+            }
+        ?>
     </div>
 
     <script type="text/javascript">
@@ -62,7 +94,11 @@
 
                 $window.on('scroll', function(){
                     let scrollTop = $window.scrollTop();
-                    nav.toggleClass('hidden', scrollTop > prev);
+                    if(scrollTop > prev && scrollTop > 0) {
+                        nav.addClass('hidden');
+                    } else {
+                        nav.removeClass('hidden');
+                    }
                     prev = scrollTop;
                 });
             });

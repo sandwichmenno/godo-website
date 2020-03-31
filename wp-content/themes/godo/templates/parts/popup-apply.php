@@ -26,31 +26,31 @@
                 <form id="apply" action="apply" method="post" enctype="multipart/form-data">
                     <span class="alert"></span>
                     <p>
-                        <label>Voornaam (verplicht)</label>
+                        <label><?php echo $lang['vacatures']['solliciteren']['voornaam']; ?></label>
                         <input type="text" placeholder="John" id="firstName" name="firstName" />
                     </p>
 
                     <p>
-                        <label>Achternaam (verplicht)</label>
+                        <label><?php echo $lang['vacatures']['solliciteren']['achternaam']; ?></label>
                         <input type="text" placeholder="Doe" id="lastName" name="lastName" />
                     </p>
 
                     <p>
-                        <label>Email (verplicht)</label>
+                        <label><?php echo $lang['vacatures']['solliciteren']['email']; ?></label>
                         <input type="text" placeholder="john@doe.nl" id="email" name="email" />
                     </p>
 
                     <p>
-                        <label>Telefoon (verplicht)</label>
+                        <label><?php echo $lang['vacatures']['solliciteren']['telefoon']; ?></label>
                         <input type="text" placeholder="+31 6 12345678" id="phone" name="phone" />
                     </p>
 
                     <p>
                         <div class="drop-zone" id="drop-zone">
                             <div class="drag-files">
-                                    <p>Sleep je cv en/of portfolio bestanden hierheen</p>
-                                    <p>of</p>
-                                    <p><input type="button" value="Blader door je bestanden" onclick="file_explorer();"></p>
+                                    <p><?php echo $lang['vacatures']['solliciteren']['cv']; ?></p>
+                                    <p><?php echo $lang['vacatures']['solliciteren']['of']; ?></p>
+                                    <p><input type="button" value="<?php echo $lang['vacatures']['solliciteren']['files']; ?>" onclick="file_explorer();"></p>
                                     <input type="file" class="selectFile" id="file" name="file[]" multiple>
                             </div>
                         </div>
@@ -58,22 +58,22 @@
 
                     <div id="file-list"></div>
 
-                    <p style="text-align: center;">en/of</p>
+                    <p style="text-align: center;"><?php echo $lang['vacatures']['solliciteren']['enof']; ?></p>
 
                     <p>
-                        <label>Link naar je cv/portfolio/LinkedIn</label>
+                        <label><?php echo $lang['vacatures']['solliciteren']['website']; ?></label>
                         <input type="text" placeholder="www.johndoe.nl" id="website" name="website" />
                     </p>
 
                     <p>
-                        <label>Korte motivatie of toelichting</label>
+                        <label><?php echo $lang['vacatures']['solliciteren']['motivation']; ?></label>
                         <textarea placeholder="Hi, wat een leuke vacature! Dit is echt een job voor mij omdat, …" id="additions" name="additions"></textarea>
                     </p>
 
                     <p>
                         <label for="gdpr" class="checkbox">
                             <input type="checkbox" id="gdpr" />
-                            <span class="label">Krijgen we je toestemming om je gegevens te bewaren? We gaan er natuurlijk goed mee om. Weten hoe? Lees het in ons <a href="/privacy-statement" target="_blank">privacy statement</a></span>
+                            <span class="label"><?php echo $lang['vacatures']['solliciteren']['privacy']; ?> <a href="/privacy-statement" target="_blank">privacy statement</a></span>
                         </label>
 
                         <label class="checkbox-label">
@@ -83,7 +83,7 @@
                     </p>
 
                     <p>
-                        <input type="submit" name="apply" value="Sollicitatie versturen"/>
+                        <input type="submit" name="apply" value="<?php echo $lang['vacatures']['solliciteren']['send']; ?>"/>
                     </p>
             </div>
         </div>
@@ -119,17 +119,28 @@
 </div>
 
 <script type="text/javascript">
+    let filesArray;
+
     function file_explorer() {
         document.getElementById('file').click();
     }
 
     function changeFileList(files) {
+        if(files) {
+            filesArray = Array.from(files);
+        }
+
         jQuery('#file-list').empty();
-        const names = jQuery.map(files, function (val) { return val.name; });
+        const names = jQuery.map(filesArray, function (val) { return val.name; });
 
         jQuery.each(names, function (i, name) {
-            jQuery('#file-list').append("<p>" + name + "</p>");
+            jQuery('#file-list').append("<div class='tag'><div onclick='removeFile("+ i +")' class='icon'><img src='<?php bloginfo('template_directory'); ?>/assets/images/icons/bin.svg'/></div>" + name + "</div>");
         });
+    }
+
+    function removeFile(file) {
+        filesArray.splice(file,1);
+        changeFileList();
     }
 
     let droppedFiles = false;
@@ -176,7 +187,6 @@
 
         jQuery('form#apply').on('submit', function(e){
             const form_data = new FormData();
-            let files;
             const data = {
                 firstName: jQuery("#firstName").val(),
                 lastName: jQuery("#lastName").val(),
@@ -185,14 +195,6 @@
                 website: jQuery("#website").val(),
                 additions: jQuery("#additions").val(),
             };
-
-            if (droppedFiles) {
-                jQuery.each( droppedFiles, function(i, file) {
-                    files = droppedFiles;
-                });
-            } else {
-                files = jQuery('#file')[0].files;
-            }
 
             form_data.append('action', 'ajaxapply');
             form_data.append('firstName', data['firstName']);
@@ -210,9 +212,12 @@
             }
 
             form_data.append('job', '<?php echo $job['id']; ?>');
+            form_data.append('jobTitle', '<?php echo $job['title']; ?>');
+            form_data.append('recruiterEmail', '<?php echo $recruiterEmail; ?>');
+            form_data.append('url', window.location.href);
 
-            for (let i = 0; i < files.length; i++) {
-                form_data.append('file[]', files[i]);
+            for (let i = 0; i < filesArray.length; i++) {
+                form_data.append('file[]', filesArray[i]);
             }
 
             for (let pair of form_data.entries()) {
